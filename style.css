@@ -1,0 +1,78 @@
+  
+   .color_page {
+    background-color: rgb(5, 112, 89);
+  }
+
+   .space_6 {
+    padding: 20px 0 20px 0 ;
+    margin : 4% ;    
+  }
+
+  .space_8 {
+    margin: 10vw 0 0 0  ;
+  }  
+
+  .space_10 {
+    margin: 4vw 0 0 0  ;
+  }  
+
+
+  .space_12 {
+    margin: 2vw 0 2vw 0  ;
+  }  
+
+
+  .text_p0 {    
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : white;      
+  }   
+
+
+  .text_p1 {
+    padding: 1% 0 1% 2%;
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : white; 
+    font-size: 4vh ;     
+    
+  }  
+
+  .text_p2 {
+    padding: 1% 2% 1% 2%;
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : rgb(241, 189, 19);    
+    font-size: 3vh; 
+  }  
+
+  .text_p2-2 {
+    padding: 1% 0 1% 0;
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : rgb(241, 189, 19);    
+    font-size: 4vh ;   
+  }  
+
+  .text_p3 {
+    padding: 1% 0 1% 0;    
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : white;    
+    font-size: 6vh ;  
+  }  
+
+  .text_p4 {
+    padding: 20% 0 1% 0;    
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : white;    
+    font-size: 2vh ;  
+  }  
+
+
+
+
+  
+
+ 
+
+
+  
+
+
+  

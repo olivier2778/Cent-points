@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Jeu de dé</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" Jeu de dé : faire 100 points avant votre adversaire !">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mon CSS -->
+    <link href="./style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap" rel="stylesheet" />
+</head>
+
+<!-- Définition image et couleur de fond de la page -->
+
+<body class="color_page">
+
+    <header class="container">
+        <div class="row">
+
+            <div class="col-3">
+                <div class="text_p0 space_6">
+                    Regles du jeu
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="text_p0 space_6">
+                    Definir les 2 joueurs
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="space_6">
+                    <button id="buttonNewGame" type="button"
+                        class="btn btn-outline-light btn-lg">
+                        Demarrez une partie
+                    </button>
+                </div>
+                
+            </div>
+
+            <div class="col-3">
+                <div class="text_p0 space_6">
+                    Niveaux
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container-fluid">
+
+        <div>
+            <div class="row">
+
+
+                <div class="col-5">
+                    <div>
+                        <p class="text_p1 space_12 d-flex justify-content-center">
+                            ________________________________________________ </p>
+
+                        <div class="d-flex justify-content-center" >
+                            <p class="text_p1" >
+                                 Total Joueur 1 : 
+                                 <span class="text_p3" id="globalPlayer1"></span>
+                            </p>                            
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <p class="text_p2" >
+                                En cours Joueur 1 :
+                                <span  class="text_p2-2" id="roundPlayer1"></span>
+                            </p>  
+                        </div>
+
+                        <p class="text_p1 space_12 d-flex justify-content-center">
+                            ________________________________________________ </p>
+                    </div>
+                </div>
+
+
+
+                <div class="col-2">
+                    <div class="d-flex justify-content-center space_8">
+                        <button id="buttonPlay" type="button"
+                            class="btn btn-outline-info btn-lg">
+                            Lancer
+                        </button>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center space_10">
+                        <button id="buttonHold" type="button"
+                            class="btn btn-outline-warning btn-lg">
+                            Garder
+                        </button>
+                    </div>
+                    <div class="text_p4  d-flex justify-content-center">
+                        resultat du lancé :
+                    </div>
+                    <p class="text_p3 d-flex justify-content-center " 
+                            id="dice">
+                    </p>               
+                   
+
+                </div>
+
+
+
+                <div class="col-5">
+                    <div>
+                        <p class="text_p1 space_12 d-flex justify-content-center">
+                            ________________________________________________ </p>
+
+                        <div class="d-flex justify-content-center" >
+                            <p class="text_p1" >
+                                 Total Joueur 2 : 
+                                 <span class="text_p3" id="globalPlayer2"></span>
+                            </p>                            
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <p class="text_p2" >
+                                En cours Joueur 2 :
+                                <span  class="text_p2-2" id="roundPlayer2"></span>
+                            </p>  
+                        </div>
+
+                        <p class="text_p1 space_12 d-flex justify-content-center">
+                            ________________________________________________ </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    
+    <footer>
+        <div class="row space_6">
+            <div class="col-12">
+                Creation Olivier
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
