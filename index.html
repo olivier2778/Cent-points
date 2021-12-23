@@ -19,121 +19,96 @@
 
     <header class="container">
         <div class="row">
-
-            <div class="col-3">
-                <div class="text_p0 space_6">
-                    Regles du jeu
+            <div class="col-4">
+                <div class="space_6 d-flex justify-content-center">
+                    <button id="buttonRegles" type="button" class="btn btn-outline-light btn-lg">
+                        Regles du jeu
+                    </button>
                 </div>
             </div>
-
-            <div class="col-3">
-                <div class="text_p0 space_6">
-                    Definir les 2 joueurs
+            <div class="col-4">
+                <div class="space_6 d-flex justify-content-center">
+                    <button id="buttonPlayers" type="button" class="btn btn-outline-light btn-lg">
+                        Definir les joueurs
+                    </button>
                 </div>
             </div>
-
-            <div class="col-3">
-                <div class="space_6">
-                    <button id="buttonNewGame" type="button"
-                        class="btn btn-outline-light btn-lg">
+            <div class="col-4">
+                <div class="space_6 d-flex justify-content-center">
+                    <button id="buttonNewGame" type="button" class="btn btn-outline-light btn-lg">
                         Demarrez une partie
                     </button>
                 </div>
-                
             </div>
-
-            <div class="col-3">
-                <div class="text_p0 space_6">
-                    Niveaux
-                </div>
-            </div>
-
         </div>
     </header>
 
-    <main class="container-fluid">
+    <main class="container-fluid text_1">
 
-        <div>
-            <div class="row">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <h1> 100 points ou rien !</h1>
+            </div>
+        </div>
 
+        <div class="row">
 
-                <div class="col-5">
-                    <div>
-                        <p class="text_p1 space_12 d-flex justify-content-center">
-                            ________________________________________________ </p>
-
-                        <div class="d-flex justify-content-center" >
-                            <p class="text_p1" >
-                                 Total Joueur 1 : 
-                                 <span class="text_p3" id="globalPlayer1"></span>
-                            </p>                            
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <p class="text_p2" >
-                                En cours Joueur 1 :
-                                <span  class="text_p2-2" id="roundPlayer1"></span>
-                            </p>  
-                        </div>
-
-                        <p class="text_p1 space_12 d-flex justify-content-center">
-                            ________________________________________________ </p>
+            <div class="col-5">
+                <div class="color_1">
+                    <p class="space_12 d-flex justify-content-center"></p>
+                    <div class="d-flex justify-content-center">
+                        <p class="text_p1">
+                            Total Joueur 1 :
+                            <span class="text_p3" id="globalPlayer1"></span>
+                        </p>
                     </div>
-                </div>
-
-
-
-                <div class="col-2">
-                    <div class="d-flex justify-content-center space_8">
-                        <button id="buttonPlay" type="button"
-                            class="btn btn-outline-info btn-lg">
-                            Lancer
-                        </button>
+                    <div class="d-flex justify-content-center">
+                        <p class="text_p2">
+                            En cours Joueur 1 :
+                            <span class="text_p4" id="roundPlayer1"></span>
+                        </p>
                     </div>
-                    
-                    <div class="d-flex justify-content-center space_10">
-                        <button id="buttonHold" type="button"
-                            class="btn btn-outline-warning btn-lg">
-                            Garder
-                        </button>
-                    </div>
-                    <div class="text_p4  d-flex justify-content-center">
-                        resultat du lancé :
-                    </div>
-                    <p class="text_p3 d-flex justify-content-center " 
-                            id="dice">
-                    </p>               
-                   
-
-                </div>
-
-
-
-                <div class="col-5">
-                    <div>
-                        <p class="text_p1 space_12 d-flex justify-content-center">
-                            ________________________________________________ </p>
-
-                        <div class="d-flex justify-content-center" >
-                            <p class="text_p1" >
-                                 Total Joueur 2 : 
-                                 <span class="text_p3" id="globalPlayer2"></span>
-                            </p>                            
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <p class="text_p2" >
-                                En cours Joueur 2 :
-                                <span  class="text_p2-2" id="roundPlayer2"></span>
-                            </p>  
-                        </div>
-
-                        <p class="text_p1 space_12 d-flex justify-content-center">
-                            ________________________________________________ </p>
-                    </div>
+                    <p class="text_p1 space_12 d-flex justify-content-center"></p>
                 </div>
             </div>
 
+            <div class="col-2">
+                <div class="d-flex justify-content-center space_8">
+                    <button id="buttonPlay" type="button" class="btn btn-outline-info btn-lg">
+                        Lancer
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center space_10">
+                    <button id="buttonHold" type="button" class="btn btn-outline-warning btn-lg">
+                        Garder
+                    </button>
+                </div>
+                <div class="text_p6  d-flex justify-content-center">
+                    resultat du lancé :
+                </div>
+                <p class="text_p3 d-flex justify-content-center " id="dice">
+                </p>
+            </div>
+
+            <div class="col-5">
+                <div class="color_2">
+                    <p class="text_p1 space_12 d-flex justify-content-center"></p>
+                    <div class="d-flex justify-content-center">
+                        <p class="text_p1">
+                            Total Joueur 2 :
+                            <span class="text_p3" id="globalPlayer2"></span>
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p class="text_p2">
+                            En cours Joueur 2 :
+                            <span class="text_p4" id="roundPlayer2"></span>
+                        </p>
+                    </div>
+                    <p class="text_p1 space_12 d-flex justify-content-center"></p>
+                </div>
+            </div>
+            
         </div>
 
     </main>

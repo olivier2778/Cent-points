@@ -1,12 +1,10 @@
 
-// voir si 2 niveau de jeu avec niveau 1 : + 100 points ou plus et niveau 2 avec le juste score de 100 points 
-
 let globalPlayer1
 let globalPlayer2
 let roundPlayer1
 let roundPlayer2
 let diceResult
-let playerNumberStart 
+let playerNumberStart
 
 const maxNumberPlayers = 2
 
@@ -26,7 +24,7 @@ function init() {
     globalPlayer1 = 0
     roundPlayer1 = 0
 
-    diceResult = 0    
+    diceResult = 0
 
     globalPlayer2 = 0
     roundPlayer2 = 0
@@ -37,16 +35,14 @@ function init() {
     document.getElementById("globalPlayer1").textContent = globalPlayer1
     document.getElementById("globalPlayer2").textContent = globalPlayer2
 
-    choosePlayer ()    
+    randomPlayerChoice()
+    OpacityPlayer()
 
 }
 
 
-
-function choosePlayer() {
-
+function randomPlayerChoice() {
     playerNumberStart = Math.floor(Math.random() * (2)) + 1
-   
 }
 
 
@@ -58,32 +54,26 @@ function play() {
 
     document.getElementById("dice").textContent = diceResult
 
-    if ( playerNumberStart === 1) {
+    if (playerNumberStart === 1 && diceResult !== 1) {        
+        roundPlayer1 = roundPlayer1 + diceResult
+        document.getElementById("roundPlayer1").textContent = roundPlayer1
 
-        if (diceResult !== 1) {
-            roundPlayer1 = roundPlayer1 + diceResult
-            document.getElementById("roundPlayer1").textContent = roundPlayer1
-    
-        } else {
-            roundPlayer1 = 0
-            document.getElementById("roundPlayer1").textContent = 0
-            playerNumberStart = 2
-        }
+    } else if (playerNumberStart === 1 && diceResult === 1) {        
+        roundPlayer1 = 0
+        document.getElementById("roundPlayer1").textContent = 0
+        playerNumberStart = 2
+        OpacityPlayer()        
 
-    } else {
+    } else if (playerNumberStart !== 1 && diceResult !== 1) {        
+        roundPlayer2 = roundPlayer2 + diceResult
+        document.getElementById("roundPlayer2").textContent = roundPlayer2
 
-        if (diceResult !== 1) {
-            roundPlayer2 = roundPlayer2 + diceResult
-            document.getElementById("roundPlayer2").textContent = roundPlayer2
-    
-        } else {
-            roundPlayer2 = 0
-            document.getElementById("roundPlayer2").textContent = 0
-            playerNumberStart = 1
-        }
-
+    } else {        
+        roundPlayer2 = 0
+        document.getElementById("roundPlayer2").textContent = 0
+        playerNumberStart = 1
+        OpacityPlayer()        
     }
-    
 }
 
 
@@ -91,31 +81,43 @@ function play() {
 
 function hold() {
 
-    if ( playerNumberStart === 1) {
+    if (playerNumberStart === 1) {        
 
-    globalPlayer1 = globalPlayer1 + roundPlayer1
-    document.getElementById("globalPlayer1").textContent = globalPlayer1
+        globalPlayer1 = globalPlayer1 + roundPlayer1
+        document.getElementById("globalPlayer1").textContent = globalPlayer1
 
-    roundPlayer1 = 0
-    document.getElementById("roundPlayer1").textContent = 0 
+        roundPlayer1 = 0
+        document.getElementById("roundPlayer1").textContent = 0
 
-    playerNumberStart = 2
+        playerNumberStart = 2
+        OpacityPlayer()
 
-    } else {
+    } else {        
 
-    globalPlayer2 = globalPlayer2 + roundPlayer2
-    document.getElementById("globalPlayer2").textContent = globalPlayer2
+        globalPlayer2 = globalPlayer2 + roundPlayer2
+        document.getElementById("globalPlayer2").textContent = globalPlayer2
 
-    roundPlayer2 = 0
-    document.getElementById("roundPlayer2").textContent = 0 
+        roundPlayer2 = 0
+        document.getElementById("roundPlayer2").textContent = 0
 
-    playerNumberStart = 1
-
-    }
+        playerNumberStart = 1
+        OpacityPlayer()
+    }    
 }
 
 
-init ()
+function OpacityPlayer() {
+    if (playerNumberStart !== 1 ) {
+        document.getElementById("activePlayer1").style.opacity = "0.4";
+        document.getElementById("activePlayer2").style.opacity = "1";
+    } else {
+        document.getElementById("activePlayer1").style.opacity = "1";
+        document.getElementById("activePlayer2").style.opacity = "0.4";
+    }    
+  }
+
+
+init()
 
 
 

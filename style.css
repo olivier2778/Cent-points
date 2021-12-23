@@ -3,68 +3,66 @@
     background-color: rgb(5, 112, 89);
   }
 
+  .color_1 {
+    margin:  0 1vw 0 1vw ;
+    background-color: rgb(7, 165, 131); 
+    border-radius: 12px;  
+    box-shadow:  0 0 5px white, -4px 0 8px #e5e8eb;
+  }
+
+  .color_2 {
+    margin:  0 1vw 0 1vw ;
+    background-color: rgb(2, 49, 39);   
+    border-radius: 12px; 
+  }
+
    .space_6 {
-    padding: 20px 0 20px 0 ;
-    margin : 4% ;    
+    padding: 4vw 0 4vw 0 ;      
   }
 
   .space_8 {
-    margin: 10vw 0 0 0  ;
-  }  
-
-  .space_10 {
     margin: 4vw 0 0 0  ;
   }  
 
-
-  .space_12 {
-    margin: 2vw 0 2vw 0  ;
+  .space_10 {
+    margin: 3vw 0 0 0  ;
   }  
 
+  .space_12 {
+    margin: 4vw 0 0 0  ;
+  }  
 
-  .text_p0 {    
+  .text_1 {
     font-family: Lato , Arial, Helvetica, sans-serif ;
-    color : white;      
-  }   
-
-
+    color : white;    
+  }
+ 
   .text_p1 {
-    padding: 1% 0 1% 2%;
-    font-family: Lato , Arial, Helvetica, sans-serif ;
-    color : white; 
-    font-size: 4vh ;     
-    
+    padding: 1% 0 1% 0%;
+    font-size: 4vh ;       
   }  
 
   .text_p2 {
-    padding: 1% 2% 1% 2%;
-    font-family: Lato , Arial, Helvetica, sans-serif ;
+    padding: 1% 0% 1% 0%;
     color : rgb(241, 189, 19);    
     font-size: 3vh; 
   }  
 
-  .text_p2-2 {
+  .text_p4 {
     padding: 1% 0 1% 0;
-    font-family: Lato , Arial, Helvetica, sans-serif ;
     color : rgb(241, 189, 19);    
     font-size: 4vh ;   
   }  
 
   .text_p3 {
-    padding: 1% 0 1% 0;    
-    font-family: Lato , Arial, Helvetica, sans-serif ;
-    color : white;    
+    /* padding: 1% 0 1% 0; */   
     font-size: 6vh ;  
   }  
 
-  .text_p4 {
-    padding: 20% 0 1% 0;    
-    font-family: Lato , Arial, Helvetica, sans-serif ;
-    color : white;    
+  .text_p6 {
+    padding: 10% 0 1% 0;       
     font-size: 2vh ;  
   }  
-
-
 
 
   
