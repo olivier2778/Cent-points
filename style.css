@@ -23,17 +23,28 @@
     background-color: rgb(75, 52, 179);
     padding : 1vh 2vh ;      
   }
- 
-  .activePlayer {   
-   padding: 1vw 6vw 1vw 6vw;
-   margin : 0 1vw 0 1vw ;
-   border-radius: 8px;      
-  }
 
+  .activePlayerOff {  
+    padding: 1vw 6vw 1vw 6vw;
+     margin : 0 1vw 0 1vw ;
+    border-radius: 8px; 
+    opacity : 0.4 ;
+    background-color: rgb(5, 112, 89) ;
+    box-shadow  : none ;
+   }
+
+   .activePlayerOn {   
+    padding: 1vw 6vw 1vw 6vw;
+    margin : 0 1vw 0 1vw ;
+    border-radius: 8px;
+    opacity : 1 ;
+    background-color: rgb(7, 165, 131) ;
+    box-shadow  : 0 0 5px white, -4px 0 8px #e5e8eb   ;
+   }
+ 
   .space_6 {
     padding: 1vw 0 2vw 0 ;      
   }
-
   
   .space_9 {
     padding-bottom: 2vw ;

@@ -39,9 +39,11 @@ function init() {
 }
 
 
+
 function randomPlayerChoice() {
-    playerNumberStart = Math.floor(Math.random() * (2)) + 1    
+    playerNumberStart = Math.floor(Math.random() * (2)) + 1  
 }
+
 
 // determine la valeur du lancer et passe le tour si resultat du lancé est 1
 
@@ -72,7 +74,6 @@ function play() {
         OpacityPlayer()        
     }
 }
-
 
 
 // valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant
@@ -106,24 +107,18 @@ function hold() {
 
 function OpacityPlayer() {
     if (playerNumberStart !== 1 ) {
-        document.getElementById("activePlayer1").style.opacity = "0.4"
-        document.getElementById("activePlayer1").style.backgroundColor = "rgb(5, 112, 89)"
-        document.getElementById("activePlayer1").style.boxShadow  = "none"
-        document.getElementById("activePlayer2").style.opacity = "1"
-        document.getElementById("activePlayer2").style.backgroundColor = "rgb(7, 165, 131)" 
-        document.getElementById("activePlayer2").style.boxShadow  =  "0 0 5px white, -4px 0 8px #e5e8eb"    
-               
+       
+       // remplacer la 1ere classe  par la 2e
+        document.getElementById("activePlayer1").classList.replace("activePlayerOn", "activePlayerOff");  
+        document.getElementById("activePlayer2").classList.replace("activePlayerOff", "activePlayerOn");     
         
     } else {
-        document.getElementById("activePlayer1").style.opacity = "1"
-        document.getElementById("activePlayer1").style.backgroundColor = "rgb(7, 165, 131)"
-        document.getElementById("activePlayer1").style.boxShadow  =  "0 0 5px white, -4px 0 8px #e5e8eb"        
-        document.getElementById("activePlayer2").style.opacity = "0.4"
-        document.getElementById("activePlayer2").style.backgroundColor = "rgb(5, 112, 89)" 
-        document.getElementById("activePlayer2").style.boxShadow  = "none"
+
+        document.getElementById("activePlayer1").classList.replace("activePlayerOff", "activePlayerOn");
+        document.getElementById("activePlayer2").classList.replace("activePlayerOn", "activePlayerOff");
+       
     }    
 }
-
 
 
 init()
