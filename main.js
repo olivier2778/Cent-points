@@ -6,10 +6,7 @@ let roundPlayer2
 let diceResult
 let playerNumberStart
 
-const maxNumberPlayers = 2
-
 const maxScore = 100
-const minScore = 0
 const looseRound = 1
 
 document.getElementById("buttonPlay").onclick = play
@@ -31,6 +28,7 @@ function init() {
 
     document.getElementById("roundPlayer1").textContent = roundPlayer1
     document.getElementById("roundPlayer2").textContent = roundPlayer2
+    document.getElementById("diceResult").textContent = diceResult
 
     document.getElementById("globalPlayer1").textContent = globalPlayer1
     document.getElementById("globalPlayer2").textContent = globalPlayer2
@@ -42,9 +40,8 @@ function init() {
 
 
 function randomPlayerChoice() {
-    playerNumberStart = Math.floor(Math.random() * (2)) + 1
+    playerNumberStart = Math.floor(Math.random() * (2)) + 1    
 }
-
 
 // determine la valeur du lancer et passe le tour si resultat du lancé est 1
 
@@ -52,7 +49,7 @@ function play() {
 
     diceResult = Math.floor(Math.random() * (6)) + 1
 
-    document.getElementById("dice").textContent = diceResult
+    document.getElementById("diceResult").textContent = diceResult
 
     if (playerNumberStart === 1 && diceResult !== 1) {        
         roundPlayer1 = roundPlayer1 + diceResult
@@ -75,6 +72,7 @@ function play() {
         OpacityPlayer()        
     }
 }
+
 
 
 // valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant
@@ -108,13 +106,24 @@ function hold() {
 
 function OpacityPlayer() {
     if (playerNumberStart !== 1 ) {
-        document.getElementById("activePlayer1").style.opacity = "0.4";
-        document.getElementById("activePlayer2").style.opacity = "1";
+        document.getElementById("activePlayer1").style.opacity = "0.4"
+        document.getElementById("activePlayer1").style.backgroundColor = "rgb(5, 112, 89)"
+        document.getElementById("activePlayer1").style.boxShadow  = "none"
+        document.getElementById("activePlayer2").style.opacity = "1"
+        document.getElementById("activePlayer2").style.backgroundColor = "rgb(7, 165, 131)" 
+        document.getElementById("activePlayer2").style.boxShadow  =  "0 0 5px white, -4px 0 8px #e5e8eb"    
+               
+        
     } else {
-        document.getElementById("activePlayer1").style.opacity = "1";
-        document.getElementById("activePlayer2").style.opacity = "0.4";
+        document.getElementById("activePlayer1").style.opacity = "1"
+        document.getElementById("activePlayer1").style.backgroundColor = "rgb(7, 165, 131)"
+        document.getElementById("activePlayer1").style.boxShadow  =  "0 0 5px white, -4px 0 8px #e5e8eb"        
+        document.getElementById("activePlayer2").style.opacity = "0.4"
+        document.getElementById("activePlayer2").style.backgroundColor = "rgb(5, 112, 89)" 
+        document.getElementById("activePlayer2").style.boxShadow  = "none"
     }    
-  }
+}
+
 
 
 init()
