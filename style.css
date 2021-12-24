@@ -1,8 +1,11 @@
   
-   .color_page {
+  body {
+    font-family: Lato , Arial, Helvetica, sans-serif ;
+    color : white;
     background-color: rgb(5, 112, 89);
+    text-align: center;    
   }
-
+   
   .color_1 {
     margin:  0 1vw 0 1vw ;
     background-color: rgb(7, 165, 131); 
@@ -16,53 +19,68 @@
     border-radius: 12px; 
   }
 
-   .space_6 {
-    padding: 4vw 0 4vw 0 ;      
+  .color_3 {    
+    background-color: rgb(75, 52, 179);
+    padding : 1vh 2vh ;      
+  }
+ 
+  .activePlayer {   
+   padding: 1vw 6vw 1vw 6vw;
+   margin : 0 1vw 0 1vw ;
+   border-radius: 8px;      
   }
 
-  .space_8 {
-    margin: 4vw 0 0 0  ;
+  .space_6 {
+    padding: 1vw 0 2vw 0 ;      
+  }
+
+  
+  .space_9 {
+    padding-bottom: 2vw ;
   }  
 
-  .space_10 {
-    margin: 3vw 0 0 0  ;
+  .space_10 {  
+    align-items: center;
   }  
 
   .space_12 {
-    margin: 4vw 0 0 0  ;
+    margin: 1vw 0 0 0  ;
   }  
 
-  .text_1 {
-    font-family: Lato , Arial, Helvetica, sans-serif ;
-    color : white;    
+  .space_15 {
+    padding: 4vw 0 1vw 3vw ;      
   }
- 
-  .text_p1 {
-    padding: 1% 0 1% 0%;
-    font-size: 4vh ;       
+  
+  .text_p1 {    
+    font-size: 4vw ;       
   }  
 
-  .text_p2 {
-    padding: 1% 0% 1% 0%;
+  .text_p2 {    
     color : rgb(241, 189, 19);    
-    font-size: 3vh; 
+    font-size: 3vw; 
   }  
 
-  .text_p4 {
-    padding: 1% 0 1% 0;
+  .text_p3 {    
+    font-size: 4vw ;
+    text-align: center;         
+  }  
+
+  .text_p4 {    
     color : rgb(241, 189, 19);    
-    font-size: 4vh ;   
+    font-size: 4vw ;   
   }  
 
-  .text_p3 {
-    /* padding: 1% 0 1% 0; */   
-    font-size: 6vh ;  
+  .text_p6 {     
+    padding-top : 1vw ;   
+    font-size: 2vh ;
+    text-align: center;     
   }  
 
-  .text_p6 {
-    padding: 10% 0 1% 0;       
-    font-size: 2vh ;  
-  }  
+
+
+  
+
+
 
 
   
