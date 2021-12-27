@@ -24,6 +24,10 @@
     padding : 1vh 2vh ;      
   }
 
+  .color_modal {
+    background-color: rgb(5, 112, 89);
+  }
+
   .activePlayerOff {  
     padding: 1vw 6vw 1vw 6vw;
      margin : 0 1vw 0 1vw ;
@@ -50,7 +54,7 @@
     padding-bottom: 2vw ;
   }  
 
-  .space_10 {  
+  .space_10 {   
     align-items: center;
   }  
 
@@ -81,11 +85,16 @@
     font-size: 4vw ;   
   }  
 
+  .text_p5 {           
+    font-size: 3vw ;   
+  }  
+
   .text_p6 {     
     padding-top : 1vw ;   
     font-size: 2vh ;
     text-align: center;     
   }  
+
 
 
 
