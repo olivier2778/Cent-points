@@ -4,7 +4,7 @@
     color : white;
     background-color: rgb(5, 112, 89);
     text-align: center;    
-  }
+  } 
    
   .color_1 {
     margin:  0 1vw 0 1vw ;
@@ -58,8 +58,8 @@
     padding-bottom: 2vw ;
   }  
 
-  .space_10 {
-    align-items: center;
+  .space_10 {  
+   margin: 0 auto;   
   }  
 
   .space_12 {
@@ -91,25 +91,24 @@
 
   .text_p5 {           
     font-size: 2vw ;   
-  }  
-
-  .text_p6 {     
-    padding-top : 1vw ;   
-    font-size: 2vh ;
-    text-align: center;     
-  }  
-
-  .color_no_more {
-    background-color: red;
-  }
-
-  .color_one_more {
-    background-color: green;
-  }
+  }   
 
 
-
+/* pour les  écrans avec une largeur superieure a 768px */
+img {
+  max-width: 50%;
+  max-height: 50%;
+  padding-bottom: 3vw ; 
+}
   
+/* pour les écrans avec une largeur maximale de 768px */
+@media screen and (max-width: 768px) {    
+  img {
+    width: 45px;
+    height: auto;
+    padding-bottom: 3vw ; 
+  }
+}
 
 
 
