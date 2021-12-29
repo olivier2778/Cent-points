@@ -21,13 +21,13 @@
             <div class="col-4">
                 <div class="space_6 d-flex justify-content-center">
                     <button id="buttonRules" type="button" class="btn btn-outline-light btn-sm">
-                        Regles du jeu
+                        Régles du jeu
                     </button>
                 </div>
             </div>
             <div class="col-4">
                 <div class="space_6">
-                    <h1>100 points et c'est gagné !</h1>
+                    <h1> 100 points et c'est gagné !</h1>
                 </div>
             </div>
             <div class="col-4">
@@ -44,7 +44,7 @@
     <main class="container-fluid">
         <div class="row">
 
-            <div class="col-sm-5">
+            <div class="col-sm-5 ">
                 <div id="activePlayer1" class="activePlayerOff">
                     <p class="space_12"></p>
                     <p class="text_p1"> PLAYER 1 </p>
@@ -53,18 +53,14 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
-                <div class="space_10">
-                    <div class="space_9">
-                        <button id="buttonPlay" type="button" class="btn btn-outline-info btn-lg">
+            <div class="col-sm-2 justify-content-center">
+                <div>                    
+                        <button id="buttonPlay" type="button" class="btn btn-info btn-lg space_button">
                             Lancer
-                        </button>
-                    </div>
-                    <div>
-                        <button id="buttonHold" type="button" class="btn btn-outline-warning btn-lg">
+                        </button>                    
+                        <button id="buttonHold" type="button" class="btn btn-warning btn-lg space_button">
                             Garder
-                        </button>
-                    </div>
+                        </button>                   
                 </div>
                 <div class="space_10">
                     <p class="text_p6">resultat du lancé :</p>
@@ -79,9 +75,9 @@
                     <p class="text_p3" id="globalPlayer2"> </p>
                     <p class="text_p2 space_9"> En cours : <span class="text_p4" id="roundPlayer2"></span> </p>
                 </div>
-            </div>    
-            
-            <div id="InputNamePlayers" class="modal fade" tabindex="-1"> 
+            </div>
+
+            <div id="InputNamePlayers" class="modal fade" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content color_modal">
                         <div class="modal-header">
@@ -100,7 +96,7 @@
             </div>
 
 
-            <div id="rulesModal" class="modal fade" tabindex="-1"> 
+            <div id="rulesModal" class="modal fade" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content color_modal">
                         <div class="modal-header">
@@ -108,13 +104,35 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="text_p5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus,
-                                  dapibus nec turpis vel, semper malesuada ante.
-                                   Vestibulum id metus ac nisl bibendum scelerisque non non purus.
-                                    Suspendisse varius nibh non aliquet sagittis.
-                                     In tincidunt orci sit amet. : 
-                            </p>
+                            <div class="text_p5">
+                                <p>La partie se joue en 100 points , le premier joueur a atteindre ou depasser ce sore
+                                    de 100 points a gagné la manche.</p>
+                                <p> Le joueur qui commence lance le dé , ce score est provisoire , il peut continuer
+                                    soit a jouer pour cumuler des points , ou soit a valider ce score provisoire pour
+                                    l'ajouter au total.</p>
+                                <p> Attention , s'il fait 1, a tout moment son score provisoire est perdu , et il
+                                    passe son tour </p>
+                                <p> C'est ensuite au joueur suivant de lancer le dé , il aura le meme choix :
+                                    il peut continuer a jouer , et a cumuler des points au risque de les perdre, ou les
+                                    garder pour les additionner a son score.</p>
+                                <p> Si le joueur fait 1 , il passe son tour en perdant son score provisoire</p>
+                                <p> Qui commence ? : </p>
+                                <p>Le joueur qui commence le jeu est determiné aleatoirement.
+                                    A la fin de la manche ( 100 points ) , 2 choix s'offrent : </p>
+                                <p> Continuer a jouer ou pas, vous pouvez choisir entre </p>
+                                <p> Continuer la partie : pour refaire une manche , et ces manches sont
+                                    comptabilisées au fur et a mesures des victoires </p>
+                                <p>Finir la partie : le compteur des manches gagnées par chaque joueur est remis a 0
+                                </p>
+                                <p> Qui rejoue ensuite ? : </p>
+                                <p>Pour toute nouvelle partie , le joueur qui commencera est le joueur suivant de celui
+                                    qui
+                                    avait commencé au tour precedent.</p>
+                                <p> Touche redemarrez une partie , elle fait quoi ? :</p>
+                                <p> Elle permet de remettre a zero le compteur des manches , elle permet de changer le
+                                    nom des joueurs , mais ne change pas l'ordre du joueur qui commencera</p>
+
+                            </div>
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -124,9 +142,9 @@
                 </div>
             </div>
 
-            <!-- l'option :   data-bs-backdrop="static"   ne permet pas de quitter la modale en cliquant en dehors --> 
+            <!-- l'option :   data-bs-backdrop="static"   ne permet pas de quitter la modale en cliquant en dehors -->
 
-            <div id="victoryModal" class="modal fade" data-bs-backdrop="static" tabindex="-1"> 
+            <div id="victoryModal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content color_modal">
                         <div class="modal-header">
@@ -134,14 +152,20 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="text_p3"> <span id="winnerPlayer"></span> a gagné ! </p>
-                            <p class="text_p3"> score : <span id="scorePlayer1"></span> a <span id="scorePlayer2"></span> </p>
-
-                            <div class="modal-footer">
-                                <button type="button" id="buttonNoMoreGame" class="btn btn-secondary" data-bs-dismiss="modal">Finir la partie</button>
-                                <button type="button" id="buttonOneMoreGame" class="btn btn-secondary" data-bs-dismiss="modal">Continuer la partie</button>
+                            <p  class="text_p3"> <span id="winnerPlayer"></span> a gagné ! </p>
+                            <div class="text_p2">
+                                <p>Scores </p>
+                                <p> <span id="namePlayer1"></span> : <span id="scorePlayer1"></span> </p>
+                                <p> <span id="namePlayer2"></span> : <span id="scorePlayer2"></span> </p>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" id="buttonNoMoreGame" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Finir</button>
+                            <button type="button" id="buttonOneMoreGame" class="btn btn-primary color_one_more"
+                                data-bs-dismiss="modal">Continuer la partie</button>
+                        </div>
+
                     </div>
                 </div>
             </div>

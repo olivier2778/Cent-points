@@ -30,7 +30,7 @@
 
   .activePlayerOff {  
     padding: 1vw 6vw 1vw 6vw;
-     margin : 0 1vw 0 1vw ;
+    margin : 0 3vw 3vw 3vw ;
     border-radius: 8px; 
     opacity : 0.4 ;
     background-color: rgb(5, 112, 89) ;
@@ -39,17 +39,21 @@
 
    .activePlayerOn {   
     padding: 1vw 6vw 1vw 6vw;
-    margin : 0 1vw 0 1vw ;
+    margin : 0 3vw 3vw 3vw ;
     border-radius: 8px;
     opacity : 1 ;
     background-color: rgb(7, 165, 131) ;
     box-shadow  : 0 0 5px white, -4px 0 8px #e5e8eb   ;
    }
+
+   .space_button{
+    margin: 1vw 1vw;   
+  }
  
   .space_6 {
     padding: 1vw 0 2vw 0 ;      
   }
-  
+
   .space_9 {
     padding-bottom: 2vw ;
   }  
@@ -86,7 +90,7 @@
   }  
 
   .text_p5 {           
-    font-size: 3vw ;   
+    font-size: 2vw ;   
   }  
 
   .text_p6 {     
@@ -95,6 +99,13 @@
     text-align: center;     
   }  
 
+  .color_no_more {
+    background-color: red;
+  }
+
+  .color_one_more {
+    background-color: green;
+  }
 
 
 
