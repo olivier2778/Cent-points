@@ -22,7 +22,6 @@ document.getElementById("buttonRules").onclick = rules
 document.getElementById("buttonOneMoreGame").onclick = oneMoreGame
 document.getElementById("buttonNoMoreGame").onclick = noMoreGame
 
-
 // initialise les valeurs au debut du jeu ( ou de la partie par click )
 function gameInit() {
     globalPlayer1 = 0
@@ -34,11 +33,10 @@ function gameInit() {
 
     displayScores()
     opacityPlayer()
-    inputNames()    
+    inputNames()     
 }
 
 function oneMoreGame() {
-
     globalPlayer1 = 0
     roundPlayer1 = 0
     diceResult = 0
@@ -54,7 +52,7 @@ function oneMoreGame() {
     playerNumberStart = playerNumberRandom
 
     displayScores()
-    opacityPlayer() 
+    opacityPlayer()  
 }
 
 function noMoreGame() {    
@@ -65,15 +63,31 @@ function noMoreGame() {
 
 function displayScores() {
     document.getElementById("roundPlayer1").textContent = roundPlayer1
-    document.getElementById("roundPlayer2").textContent = roundPlayer2
-    document.getElementById("diceResult").textContent = diceResult
+    document.getElementById("roundPlayer2").textContent = roundPlayer2  
     document.getElementById("globalPlayer1").textContent = globalPlayer1
     document.getElementById("globalPlayer2").textContent = globalPlayer2
 }
 
+function displayDice() {    
+    if ( diceResult === 1 ) {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice1.png"/>'
+    } else if  ( diceResult === 2 ) {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice2.png"/>'
+    } else if  ( diceResult === 3 ) {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice3.png"/>'
+    } else if  ( diceResult === 4 ) {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice4.png"/>'
+    } else if  ( diceResult === 5 ) {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice5.png"/>'
+    } else  {
+        document.getElementById("imageDice").innerHTML = '<img src="./images/dice6.png"/>'
+    }   
+}    
 
-function randomPlayerChoice() {
-            playerNumberRandom = Math.floor(Math.random() * 2) + 1
+
+
+function randomPlayerChoice() {    
+        playerNumberRandom = Math.floor(Math.random() * 2) + 1
         playerNumberStart = playerNumberRandom    
 }
 
@@ -97,8 +111,8 @@ function inputNames() {
 
 
 function play() {   // play determine la valeur du lancer et passe le tour au joueur suivant si resultat du lancé est 1  
-    diceResult = Math.floor(Math.random() * 6) + 1
-    document.getElementById("diceResult").textContent = diceResult
+    diceResult = Math.floor(Math.random() * 6) + 1  
+   displayDice () 
 
     if (playerNumberStart === 1 && diceResult !== 1) {
         roundPlayer1 = roundPlayer1 + diceResult
@@ -123,7 +137,6 @@ function play() {   // play determine la valeur du lancer et passe le tour au jo
 }
 
 // valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant
-
 function hold() {
     if (playerNumberStart === 1) {
         globalPlayer1 = globalPlayer1 + roundPlayer1
