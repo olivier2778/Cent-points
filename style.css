@@ -4,7 +4,7 @@
     color : white;
     background-color: rgb(5, 112, 89);
     text-align: center;    
-  } 
+  }   
    
   .color_1 {
     margin:  0 1vw 0 1vw ;
@@ -30,7 +30,7 @@
 
   .activePlayerOff {  
     padding: 1vw 6vw 1vw 6vw;
-    margin : 0 3vw 3vw 3vw ;
+    margin : 0 3vw 1vw 3vw ;
     border-radius: 8px; 
     opacity : 0.4 ;
     background-color: rgb(5, 112, 89) ;
@@ -39,7 +39,7 @@
 
    .activePlayerOn {   
     padding: 1vw 6vw 1vw 6vw;
-    margin : 0 3vw 3vw 3vw ;
+    margin : 0 3vw 1vw 3vw ;
     border-radius: 8px;
     opacity : 1 ;
     background-color: rgb(7, 165, 131) ;
@@ -55,15 +55,15 @@
   }
 
   .space_9 {
-    padding-bottom: 2vw ;
+    padding-bottom: 0vw ;
   }  
 
-  .space_10 {  
+  .space_10 {   
    margin: 0 auto;   
   }  
 
   .space_12 {
-    margin: 1vw 0 0 0  ;
+    margin-top: 0vw ;
   }  
 
   .space_15 {
@@ -71,42 +71,53 @@
   }
   
   .text_p1 {    
-    font-size: 4vw ;       
+    font-size: 1.8em ;       
   }  
 
   .text_p2 {    
     color : rgb(241, 189, 19);    
-    font-size: 3vw; 
+    font-size: 1.3em; 
   }  
 
   .text_p3 {    
-    font-size: 4vw ;
+    font-size: 5em ;
     text-align: center;         
   }  
 
   .text_p4 {    
     color : rgb(241, 189, 19);    
-    font-size: 4vw ;   
+    font-size: 1.8em ;   
   }  
 
   .text_p5 {           
-    font-size: 2vw ;   
+    font-size: 1.1em ;   
   }   
+
+  .text_p6 {    
+    color : rgb(241, 189, 19);    
+    font-size: 0.7em; 
+  }  
+  
+  .vol {
+    max-width: 2.5em;
+    max-height: 2.5em;
+    margin-top: 2vw; 
+  }
 
 
 /* pour les  écrans avec une largeur superieure a 768px */
-img {
+.imgDice {
   max-width: 50%;
   max-height: 50%;
-  padding-bottom: 3vw ; 
+  padding: 3vw 0; 
 }
   
 /* pour les écrans avec une largeur maximale de 768px */
 @media screen and (max-width: 768px) {    
-  img {
+  .imgDice {
     width: 45px;
     height: auto;
-    padding-bottom: 3vw ; 
+    padding: 3vw 0; 
   }
 }
 
