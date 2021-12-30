@@ -2,6 +2,7 @@
 let namePlayer1
 let namePlayer2
 const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png' ,  './images/dice_anim.gif']
+const imgSound = ['./images/volOff.png' , './images/volOn.png']
 let scorePlayers
 let globalPlayer1
 let globalPlayer2
@@ -11,9 +12,8 @@ let diceResult = 0
 let playerNumberRandom = 0
 let playerNumberStart
 let winnerPlayer
-
 const winScore = 10
-
+let soundOn = false
 
 // valide l'action des boutons de jeu ( play et hold ) et de l'intialisation de la partie et de l'affichage des regles du jeu
 document.getElementById("buttonNewGame").onclick = gameInit
@@ -23,9 +23,9 @@ document.getElementById("buttonNoMoreGame").onclick = noMoreGame
 document.getElementById("buttonPlay").onclick = diceRoll
 document.getElementById("buttonHold").onclick = hold
 document.getElementById("buttonSubmitNames").onclick = submitNames
+document.getElementById("soundVolume").onclick = sound
 
 
-// gameInit  initialise les valeurs au debut du jeu ( ou des manches )
 function gameInit() {                                              // gameInit  initialise les valeurs au debut du jeu ( ou des manches )
     scorePlayers = [0, 0]
     namePlayer1 = 'Player 1'
@@ -80,7 +80,7 @@ function displayDice() {                                          // affichage d
 }   
 
 
-function NoDisplayDice() {     
+function NoDisplayDice() {                                         // pas d'affichage du dé
     diceResult = 0
     document.getElementById("imageDice").src = diceFaces[diceResult]  
 }
@@ -114,7 +114,6 @@ function submitNames () {
     namePlayer2 = document.getElementById("InputNamePlayer2").value   
     document.getElementById("namePlayer1").textContent = namePlayer1
     document.getElementById("namePlayer2").textContent = namePlayer2
-
     InputNamePlayers.hide()         
 }
 
@@ -151,7 +150,6 @@ function play() {                                            // determine la val
         opacityPlayer() 
         setTimeout(NoDisplayDice , 600) 
     }
-
     document.getElementById("imageDice").src = diceFaces[diceResult]   // affiche le lancé   
 }
 
@@ -200,6 +198,18 @@ function victory() {                          // affichage modale victoire avec 
     document.getElementById("player2Scores").textContent = `score de ${namePlayer2} : ${scorePlayers[1]}`
     victoryModal = new bootstrap.Modal(document.getElementById("victoryModal"))    
     victoryModal.show()
+}
+
+function sound() {
+    if ( soundOn === true) {
+        soundOn = false
+        document.getElementById("soundVolume").src = imgSound[0]  
+        document.getElementById("soundText").textContent = "Son Off"      
+    } else {
+        soundOn = true
+        document.getElementById("soundVolume").src = imgSound[1]  
+        document.getElementById("soundText").textContent = "Son On"
+    }
 }
 
 

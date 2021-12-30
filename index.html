@@ -64,8 +64,7 @@
                 </div>
 
                 <div class="space_10">
-                    <p></p>
-                    <img id="imageDice" src="./images/dice0.png">
+                    <img class="imgDice" id="imageDice" src="./images/dice0.png">
                 </div>
             </div>
 
@@ -130,28 +129,22 @@
                                     l'ajouter au total.</p>
                                 <p> Attention , s'il fait 1, a tout moment son score provisoire est perdu , et il
                                     passe son tour </p>
-                                <p> C'est ensuite au joueur suivant de lancer le dé , il aura le meme choix :
-                                    il peut continuer a jouer , et a cumuler des points au risque de les perdre, ou les
-                                    garder pour les additionner a son score.</p>
-                                <p> Si le joueur fait 1 , il passe son tour en perdant son score provisoire</p>
-                                <p> Qui commence ? : </p>
-                                <p>Le joueur qui commence le jeu est determiné aleatoirement.
-                                    A la fin de la manche ( 100 points ) , 2 choix s'offrent : </p>
-                                <p> Continuer a jouer ou pas, vous pouvez choisir entre </p>
-                                <p> Continuer la partie : pour refaire une manche , et ces manches sont
-                                    comptabilisées au fur et a mesures des victoires </p>
-                                <p>Finir la partie : le compteur des manches gagnées par chaque joueur est remis a 0
-                                </p>
-                                <p> Qui rejoue ensuite ? : </p>
-                                <p>Pour toute nouvelle partie , le joueur qui commencera est le joueur suivant de celui
-                                    qui
-                                    avait commencé au tour precedent.</p>
-                                <p> Touche redemarrez une partie , elle fait quoi ? :</p>
-                                <p> Elle permet de remettre a zero le compteur des manches , elle permet de changer le
-                                    nom des joueurs , mais ne change pas l'ordre du joueur qui commencera</p>
-
+                                <p> C'est ensuite au joueur suivant de lancer le dé , il aura les memes choix. </p>
+                                <p> Qui commence ? : <br> Le joueur qui commence le jeu est determiné aleatoirement.</p>
+                                <p> Qui commence ensuite a la partie suivante ? : <br> Pour toute nouvelle partie ,
+                                    le joueur qui commencera est le joueur suivant de celui qui avait commencé au tour
+                                    precedent.</p>
+                                <ul>
+                                    A la fin de la manche ( 100 points ) , 2 choix s'offrent :
+                                    <li> Continuer la partie : pour refaire une manche , et ces manches sont
+                                        comptabilisées au fur et a mesures des victoires </li>
+                                    <li>Finir la partie : le compteur des manches gagnées par chaque joueur est remis
+                                        a zéro</li>
+                                </ul>
+                                <p> Touche redemarrez une partie , elle fait quoi ? :<br> Elle permet de remettre a zéro
+                                    le compteur des manches , elle permet de changer le nom des joueurs , mais ne change
+                                    pas l'ordre du joueur qui commencera</p>
                             </div>
-
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             </div>
@@ -178,14 +171,20 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="space_10">
+                <img type="button" class="vol" id="soundVolume" src="./images/volOff.png" alt="volume off">
+                <p id="soundText">Son Off</p>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <div class="row space_15">
-            <div class="col-12">
-                Creation Olivier
+     <footer>
+        <div class="row space_12">
+            <div class="col-12 text_p6">
+                Une creation Olivier
             </div>
         </div>
     </footer>
