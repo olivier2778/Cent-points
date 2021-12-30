@@ -46,35 +46,35 @@
 
             <div class="col-sm-5 ">
                 <div id="activePlayer1" class="activePlayerOff">
-                    <p class="space_12"></p>
-                    <p class="text_p1"> PLAYER 1 </p>
-                    <p class="text_p3" id="globalPlayer1"> </p>
-                    <p class="text_p2 space_9"> En cours : <span class="text_p4" id="roundPlayer1"></span> </p>
+                    <div class="space_12"></div>
+                    <div class="text_p1" id="namePlayer1"> </div>
+                    <div class="text_p3" id="globalPlayer1"> </div>
+                    <div class="text_p2 space_9"> En cours : <span class="text_p4" id="roundPlayer1"></span> </div>
                 </div>
             </div>
 
             <div class="col-sm-2 justify-content-center">
-                <div>                    
-                        <button id="buttonPlay" type="button" class="btn btn-info btn-lg space_button">
-                            Lancer
-                        </button>                    
-                        <button id="buttonHold" type="button" class="btn btn-warning btn-lg space_button">
-                            Garder
-                        </button>                   
+                <div>
+                    <button id="buttonPlay" type="button" class="btn btn-info btn-lg space_button">
+                        Lancer
+                    </button>
+                    <button id="buttonHold" type="button" class="btn btn-warning btn-lg space_button">
+                        Garder
+                    </button>
                 </div>
-                 
+
                 <div class="space_10">
                     <p></p>
-                    <img id="imageDice" src="./images/dice0.png"  >
+                    <img id="imageDice" src="./images/dice0.png">
                 </div>
             </div>
 
             <div class="col-sm-5">
                 <div id="activePlayer2" class="activePlayerOn">
-                    <p class="space_12"></p>
-                    <p class="text_p1"> PLAYER 2 </p>
-                    <p class="text_p3" id="globalPlayer2"> </p>
-                    <p class="text_p2 space_9"> En cours : <span class="text_p4" id="roundPlayer2"></span> </p>
+                    <div class="space_12"></div>
+                    <div class="text_p1" id="namePlayer2"> </div>
+                    <div class="text_p3" id="globalPlayer2"> </div>
+                    <div class="text_p2 space_9"> En cours : <span class="text_p4" id="roundPlayer2"></span> </div>
                 </div>
             </div>
 
@@ -86,8 +86,25 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            <p class="text_p5">formulaire de saisie ..... : </p>
-
+                          
+                            <div class="row size_7">
+                                <div class="col text_ref3">
+                                    
+                                    <div class="colorForm">
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-lg">
+                                                <input id="InputNamePlayer1" type="text" class="form-control" placeholder="Nom player 1"
+                                                    aria-label="Nom player 1">
+                                            </div>
+                                            <div class="col-lg">
+                                                <input id="InputNamePlayer2" type="text" class="form-control" placeholder="Nom player 2"
+                                                    aria-label="Nom player 2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button id="buttonSubmitNames" type="submit" class="btn btn-primary">Valider</button>
+                                </div>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             </div>
@@ -146,30 +163,23 @@
             <!-- l'option :   data-bs-backdrop="static"   ne permet pas de quitter la modale en cliquant en dehors -->
             <div id="victoryModal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content color_modal">
-                        <div class="modal-header">
-                            <p class="modal-title text_p4"> </p>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
+                    <div class="modal-content color_modal">                      
                         <div class="modal-body">
-                            <p  class="text_p3"> <span id="winnerPlayer"></span> a gagné ! </p>
-                            <div class="text_p2">
-                                <p>Scores </p>
-                                <p> <span id="namePlayer1"></span> : <span id="scorePlayer1"></span> </p>
-                                <p> <span id="namePlayer2"></span> : <span id="scorePlayer2"></span> </p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
+                            <p class="text_p1" id="winnerPlayer"></p>                           
+                            <div class="text_p2">                                
+                                <p id="player1Scores"></p> 
+                                <p id="player2Scores"></p> 
+                            </div>                  
                             <button type="button" id="buttonNoMoreGame" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Finir</button>
+                                data-bs-dismiss="modal">Finir</button>                 <!-- on reinitailise le compteur des manches -->
                             <button type="button" id="buttonOneMoreGame" class="btn btn-primary"
-                                data-bs-dismiss="modal">Continuer la partie</button>
+                                data-bs-dismiss="modal">Continuer la partie</button>    <!-- on continue de compter les manches -->                                
                         </div>
-
                     </div>
                 </div>
             </div>
 
+        </div>
     </main>
 
     <footer>
