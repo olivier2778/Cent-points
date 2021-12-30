@@ -1,61 +1,61 @@
 
-let namePlayer1 = "Player 1"
-let namePlayer2 = "Player 2"
+let namePlayer1
+let namePlayer2
 const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png' ,  './images/dice_anim.gif']
 let scorePlayers
 let globalPlayer1
 let globalPlayer2
 let roundPlayer1
 let roundPlayer2
-let diceResult
+let diceResult = 0
 let playerNumberRandom = 0
 let playerNumberStart
 let winnerPlayer
+
 const winScore = 10
 
 
 // valide l'action des boutons de jeu ( play et hold ) et de l'intialisation de la partie et de l'affichage des regles du jeu
-
-document.getElementById("buttonPlay").onclick = playBegin
-document.getElementById("buttonHold").onclick = hold
 document.getElementById("buttonNewGame").onclick = gameInit
 document.getElementById("buttonRules").onclick = rules
 document.getElementById("buttonOneMoreGame").onclick = oneMoreGame
-document.getElementById("buttonNoMoreGame").onclick = noMoreGame
+document.getElementById("buttonNoMoreGame").onclick = noMoreGame                     
+document.getElementById("buttonPlay").onclick = diceRoll
+document.getElementById("buttonHold").onclick = hold
+document.getElementById("buttonSubmitNames").onclick = submitNames
 
 
-// initialise les valeurs au debut du jeu ( ou des manches )
-function gameInit() {
-    globalPlayer1 = 0
-    roundPlayer1 = 0
-    diceResult = 0
-    globalPlayer2 = 0
-    roundPlayer2 = 0
+// gameInit  initialise les valeurs au debut du jeu ( ou des manches )
+function gameInit() {                                              // gameInit  initialise les valeurs au debut du jeu ( ou des manches )
     scorePlayers = [0, 0]
-
+    namePlayer1 = 'Player 1'
+    namePlayer2 = 'Player 2'
+    initPlayers ()
     displayScores()
     opacityPlayer()
     inputNames()    
 }
 
 
-function oneMoreGame() {                                            // on continue la partie en comptant les manches
-    globalPlayer1 = 0
-    roundPlayer1 = 0
-    diceResult = 0
-    globalPlayer2 = 0
-    roundPlayer2 = 0    
-
+function oneMoreGame() {                                           // on continue la partie en comptant les manches
+    initPlayers ()
     if (playerNumberRandom === 1) {
         playerNumberRandom = 2
     } else {
         playerNumberRandom = 1
     }
-
     playerNumberStart = playerNumberRandom
-
     displayScores()
     opacityPlayer()
+}
+
+
+function initPlayers () {
+    globalPlayer1 = 0
+    roundPlayer1 = 0
+    diceResult = 0
+    globalPlayer2 = 0
+    roundPlayer2 = 0
 }
 
 
@@ -66,6 +66,8 @@ function noMoreGame() {                                            // fin de la 
 
 
 function displayScores() {
+    document.getElementById("namePlayer1").textContent = namePlayer1
+    document.getElementById("namePlayer2").textContent = namePlayer2
     document.getElementById("roundPlayer1").textContent = roundPlayer1
     document.getElementById("roundPlayer2").textContent = roundPlayer2
     document.getElementById("globalPlayer1").textContent = globalPlayer1
@@ -74,8 +76,14 @@ function displayScores() {
 
 
 function displayDice() {                                          // affichage de la face du dé resultant du lancé 
-     document.getElementById("imageDice").src = diceFaces[diceResult]   
-}    
+     document.getElementById("imageDice").src = diceFaces[diceResult]       
+}   
+
+
+function NoDisplayDice() {     
+    diceResult = 0
+    document.getElementById("imageDice").src = diceFaces[diceResult]  
+}
 
 
 function randomPlayerChoice() {                                    // choix aleatoire du joueur qui commence 
@@ -96,18 +104,28 @@ function opacityPlayer() {                                        // actualisati
 
 
 function inputNames() {
-    NamesModal = new bootstrap.Modal(document.getElementById("InputNamePlayers"))
-    NamesModal.show()
+    InputNamePlayers = new bootstrap.Modal(document.getElementById("InputNamePlayers"))     
+    InputNamePlayers.show()        
+    
+}
+
+function submitNames () {       
+    namePlayer1 = document.getElementById("InputNamePlayer1").value
+    namePlayer2 = document.getElementById("InputNamePlayer2").value   
+    document.getElementById("namePlayer1").textContent = namePlayer1
+    document.getElementById("namePlayer2").textContent = namePlayer2
+
+    InputNamePlayers.hide()         
 }
 
 
-function playBegin() {                                          // jeu en cours
+function diceRoll() {                                           // jeu en cours
     document.getElementById("imageDice").src = diceFaces[7]     // animation du dé avec un gif
-    setTimeout(playEnd  , 700)                                  // et attente 0,7s avant d'afficher le resultat du lancé (function playEnd)   
+    setTimeout(play , 700)                                      // et attente 0,7s avant d'afficher le resultat du lancé (function play) 
 }
 
 
-function playEnd() {                                            // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour au joueur suivant 
+function play() {                                            // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour au joueur suivant 
     diceResult = Math.floor(Math.random() * 6) + 1                               
    
     if (playerNumberStart === 1 && diceResult !== 1) {
@@ -115,27 +133,32 @@ function playEnd() {                                            // determine la 
         document.getElementById("roundPlayer1").textContent = roundPlayer1
 
     } else if (playerNumberStart === 1 && diceResult === 1) {
+        
         roundPlayer1 = 0
         document.getElementById("roundPlayer1").textContent = 0
         playerNumberStart = 2
-        opacityPlayer()
+        opacityPlayer()             
+        setTimeout(NoDisplayDice , 600)    // supprime l'affichage du lancé 1  apres 3s
 
     } else if (playerNumberStart !== 1 && diceResult !== 1) {
         roundPlayer2 = roundPlayer2 + diceResult
         document.getElementById("roundPlayer2").textContent = roundPlayer2
 
-    } else {
+    } else {       
         roundPlayer2 = 0
         document.getElementById("roundPlayer2").textContent = 0
         playerNumberStart = 1
-        opacityPlayer()
+        opacityPlayer() 
+        setTimeout(NoDisplayDice , 600) 
     }
 
     document.getElementById("imageDice").src = diceFaces[diceResult]   // affiche le lancé   
 }
 
 
-function hold() {                                               // hold valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant
+function hold() {               // valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant
+    NoDisplayDice()             // le dé n'est plus affiché       
+                                        
     if (playerNumberStart === 1) {
         globalPlayer1 = globalPlayer1 + roundPlayer1
         document.getElementById("globalPlayer1").textContent = globalPlayer1
@@ -147,7 +170,7 @@ function hold() {                                               // hold valide l
         roundPlayer1 = 0
         document.getElementById("roundPlayer1").textContent = 0
         playerNumberStart = 2
-        opacityPlayer()
+        opacityPlayer()        
 
     } else {
         globalPlayer2 = globalPlayer2 + roundPlayer2
@@ -160,9 +183,8 @@ function hold() {                                               // hold valide l
         roundPlayer2 = 0
         document.getElementById("roundPlayer2").textContent = 0
         playerNumberStart = 1
-        opacityPlayer()
-    }
-    document.getElementById("imageDice").src = diceFaces[0]                         
+        opacityPlayer()        
+    }                 
 }
 
 
@@ -172,13 +194,11 @@ function rules() {
 }
 
 
-function victory() {
-    document.getElementById("winnerPlayer").textContent = winnerPlayer
-    document.getElementById("scorePlayer1").textContent = scorePlayers[0]
-    document.getElementById("scorePlayer2").textContent = scorePlayers[1]
-    document.getElementById("namePlayer1").textContent = namePlayer1
-    document.getElementById("namePlayer2").textContent = namePlayer2
-    victoryModal = new bootstrap.Modal(document.getElementById("victoryModal"))
+function victory() {                          // affichage modale victoire avec gestion manches                                                        
+    document.getElementById("winnerPlayer").textContent = `${winnerPlayer} a gagné cette manche !`
+    document.getElementById("player1Scores").textContent = `score de ${namePlayer1} : ${scorePlayers[0]}`
+    document.getElementById("player2Scores").textContent = `score de ${namePlayer2} : ${scorePlayers[1]}`
+    victoryModal = new bootstrap.Modal(document.getElementById("victoryModal"))    
     victoryModal.show()
 }
 
