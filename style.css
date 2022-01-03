@@ -47,25 +47,17 @@
    }
 
    .space_button{
-    margin: 1vw 1vw;   
+    margin: 1vw;   
   }
  
   .space_6 {
     padding: 1vw 0 2vw 0 ;      
   }
 
-  .space_9 {
-    padding-bottom: 0vw ;
-  }  
-
   .space_10 {   
    margin: 0 auto;   
   }  
-
-  .space_12 {
-    margin-top: 0vw ;
-  }  
-
+ 
   .space_15 {
     padding: 4vw 0 1vw 3vw ;      
   }
