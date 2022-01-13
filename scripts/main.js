@@ -17,7 +17,7 @@ let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 10   // score a atteindre pour gagner
+const winScore = 100   // score a atteindre pour gagner
 
 // valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
 document.getElementById("buttonNewGame").onclick = gameInit
@@ -34,6 +34,7 @@ function gameInit() {                                              // gameInit  
     namePlayer1 = 'Player 1'
     namePlayer2 = 'Player 2'
     initPlayers ()
+    displayPlayers()
     displayScores()
     opacityPlayer()
     inputNames()    
@@ -51,6 +52,12 @@ function oneMoreGame() {                                           // on continu
     opacityPlayer()
 }
 
+function noMoreGame() {                                            // fin de la partie avec reinitialisation du compteur des manches
+    document.getElementById("imageDice").src = diceFaces[0]     
+    scorePlayers = [0, 0]
+    oneMoreGame()   
+}
+
 function initPlayers () {
     globalPlayer1 = 0
     roundPlayer1 = 0
@@ -59,19 +66,18 @@ function initPlayers () {
     roundPlayer2 = 0
 }
 
-function noMoreGame() {                                            // fin de la partie avec reinitialisation du compteur des manches
-    scorePlayers = [0, 0]
-    oneMoreGame()   
-}
-
-function displayScores() {
-    document.getElementById("namePlayer1").textContent = namePlayer1
-    document.getElementById("namePlayer2").textContent = namePlayer2
+function displayScores() {   
     document.getElementById("roundPlayer1").textContent = roundPlayer1
     document.getElementById("roundPlayer2").textContent = roundPlayer2
     document.getElementById("globalPlayer1").textContent = globalPlayer1
     document.getElementById("globalPlayer2").textContent = globalPlayer2
 }
+
+function displayPlayers() {
+    document.getElementById("namePlayer1").textContent = namePlayer1
+    document.getElementById("namePlayer2").textContent = namePlayer2
+}
+    
 
 let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // affichage de la face du dé resultant du lancé 
 
@@ -101,13 +107,11 @@ function submitNames () {     // validation de la saisie des noms
     namePlayer1 = document.getElementById("InputNamePlayer1").value
     namePlayer2 = document.getElementById("InputNamePlayer2").value    
     if (  namePlayer1.length >2 && namePlayer1 !== "   "  && namePlayer2.length >2 && namePlayer2 !== "   ")  {
-        document.getElementById("namePlayer1").textContent = namePlayer1
-        document.getElementById("namePlayer2").textContent = namePlayer2
+        displayPlayers()
     } else {
         namePlayer1 = 'Player 1'
         namePlayer2 = 'Player 2'
-        document.getElementById("namePlayer1").textContent = namePlayer1
-        document.getElementById("namePlayer2").textContent = namePlayer2
+        displayPlayers()
     }                                
     InputNamePlayers.hide()    
 }
@@ -118,7 +122,7 @@ function diceRoll() {                                          // jeu en cours
     setTimeout(play , 700)                                  // et attente 0,7s avant d'afficher le resultat du lancé (function play) 
 }
 
-function play() {                                            // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour au joueur suivant 
+function play() {                                            // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour 
     diceResult = Math.floor(Math.random() * 6) + 1                            
     if (playerNumberStart === 1 && diceResult !== 1) {
         roundPlayer1 = roundPlayer1 + diceResult

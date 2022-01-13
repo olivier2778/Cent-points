@@ -2,6 +2,7 @@ body {
   font-family: Lato , Arial, Helvetica, sans-serif ;
   color : white; 
   text-align: center;    
+  overflow-x: hidden; 
 }   
 
 body , .color_modal {
@@ -9,7 +10,7 @@ body , .color_modal {
 }
   
 .activePlayerOff {  
-  padding: 1vw 6vw 1vw 6vw;
+  padding: 1vw 6vw ;
   margin : 0 3vw 1vw 3vw ;
   border-radius: 8px; 
   opacity : 0.4 ;
@@ -18,7 +19,7 @@ body , .color_modal {
 }
 
 .activePlayerOn {   
-  padding: 1vw 6vw 1vw 6vw;
+  padding: 1vw 6vw ;
   margin : 0 3vw 1vw 3vw ;
   border-radius: 8px;
   opacity : 1 ;
@@ -56,8 +57,7 @@ body , .color_modal {
 }  
 
 .text_p3 {    
-  font-size: 5em ;
-  text-align: center;         
+  font-size: 5em ;        
 }  
 
 .text_p4 {   
@@ -70,6 +70,10 @@ body , .color_modal {
 
 .text_p6 {    
   font-size: 0.7em; 
+}  
+
+.text_p7 {    
+  font-size: 0.8em; 
 }  
 
 .sound_button {

@@ -6,10 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content=" Jeu de dé : faire 100 points avant votre adversaire !">
+    <meta name="keywords" content="dé , dice , jeu , game , joueur, player , points , victoire , victory , gagner , win">
+    <meta name="author" content="Olivier">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Mon CSS -->
     <link href="./styles/style.css" rel="stylesheet" type="text/css">
+    <!-- font Lato -->
     <link href="https://fonts.googleapis.com/css?family=Lato&amp;display=swap" rel="stylesheet" />
 </head>
 
@@ -26,13 +29,14 @@
             </div>
             <div class="col-4">
                 <div class="space_1">
-                    <h1> 100 points et c'est gagné !</h1>
+                    <h1>100 points</h1>
+                    <h4>et c'est gagné!</h4>
                 </div>
             </div>
             <div class="col-4">
                 <div class="space_1 d-flex justify-content-center">
                     <button id="buttonNewGame" type="button" class="btn btn-success btn-sm button_t1">
-                        Démarrez une partie
+                        Démarrer une partie
                     </button>
                 </div>
             </div>
@@ -119,28 +123,28 @@
                         </div>
                         <div class="modal-body">
                             <div class="text_p5">
-                                <p>La partie se joue en 100 points , le premier joueur a atteindre ou depasser ce sore
+                                <p>La partie se joue en 100 points , le premier joueur qui atteint ou dépasse ce sore
                                     de 100 points a gagné la manche.</p>
                                 <p> Le joueur qui commence lance le dé , ce score est provisoire , il peut continuer
-                                    soit a jouer pour cumuler des points , ou soit a valider ce score provisoire pour
+                                    soit à jouer pour cumuler des points , ou soit à valider ce score provisoire pour
                                     l'ajouter au total.</p>
-                                <p> Attention , s'il fait 1, a tout moment son score provisoire est perdu , et il
+                                <p> Attention , s'il fait 1, à tout moment son score provisoire est perdu , et il
                                     passe son tour </p>
-                                <p> C'est ensuite au joueur suivant de lancer le dé , il aura les memes choix. </p>
-                                <p> Qui commence ? : <br> Le joueur qui commence le jeu est determiné aleatoirement.</p>
-                                <p> Qui commence ensuite a la partie suivante ? : <br> Pour toute nouvelle partie ,
+                                <p> C'est ensuite au joueur suivant de lancer le dé , il aura les mêmes choix. </p>
+                                <p> Qui commence ? : <br> Le joueur qui commence le jeu est determiné aléatoirement.</p>
+                                <p> Qui commence ensuite à la partie suivante ? : <br> Pour toute nouvelle partie ,
                                     le joueur qui commencera est le joueur suivant de celui qui avait commencé au tour
-                                    precedent.</p>
+                                    précédent.</p>
                                 <ul>
                                     A la fin de la manche ( 100 points ) , 2 choix s'offrent :
                                     <li> Continuer la partie : pour refaire une manche , et ces manches sont
                                         comptabilisées au fur et a mesures des victoires </li>
                                     <li>Finir la partie : le compteur des manches gagnées par chaque joueur est remis
-                                        a zéro</li>
+                                        à zéro</li>
                                 </ul>
-                                <p> Touche redemarrez une partie , elle fait quoi ? :<br> Elle permet de remettre a zéro
+                                <p> Touche démarrer une partie , elle fait quoi ? :<br> Elle permet de remettre a zéro
                                     le compteur des manches , elle permet de changer le nom des joueurs , mais ne change
-                                    pas l'ordre du joueur qui commencera</p>
+                                    pas l'ordre du joueur qui commencera.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quitter</button>
@@ -173,7 +177,7 @@
         <div class="row">
             <div class="space_2">
                 <img type="button" class="sound_button" id="soundVolume" src="./images/volOff.png" alt="volume off">
-                <p id="soundText">Son Off</p>
+                <p class="text_p7" id="soundText">Son Off</p>
             </div>
         </div>
 
