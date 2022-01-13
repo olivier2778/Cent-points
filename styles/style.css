@@ -1,0 +1,132 @@
+body {
+  font-family: Lato , Arial, Helvetica, sans-serif ;
+  color : white;
+  background-color: rgb(5, 112, 89);
+  text-align: center;    
+}   
+ 
+.color_1 {
+  margin:  0 1vw 0 1vw ;
+  background-color: rgb(7, 165, 131); 
+  border-radius: 12px;  
+  box-shadow:  0 0 5px white, -4px 0 8px #e5e8eb;
+}
+
+.color_2 {
+  margin:  0 1vw 0 1vw ;
+  background-color: rgb(2, 49, 39);   
+  border-radius: 12px; 
+}
+
+.color_3 {    
+  background-color: rgb(75, 52, 179);
+  padding : 1vh 2vh ;      
+}
+
+.color_modal {
+  background-color: rgb(5, 112, 89);
+}
+
+.activePlayerOff {  
+  padding: 1vw 6vw 1vw 6vw;
+  margin : 0 3vw 1vw 3vw ;
+  border-radius: 8px; 
+  opacity : 0.4 ;
+  background-color: rgb(4, 92, 73) ;
+  box-shadow  : none ;
+}
+
+.activePlayerOn {   
+  padding: 1vw 6vw 1vw 6vw;
+  margin : 0 3vw 1vw 3vw ;
+  border-radius: 8px;
+  opacity : 1 ;
+  background-color: rgb(7, 165, 131) ;
+  box-shadow  :  inset 0px 0px 5px white  ;
+} 
+ 
+.button_t1 {    
+  box-shadow  :  0px 0px 1px white   ;
+} 
+
+.button_t2 {
+  margin: 1vw;   
+  box-shadow  :  inset 0px 0px 5px white  ;
+}
+
+.space_6 {
+  padding: 1vw 0 2vw 0 ;      
+}
+
+.space_10 {   
+ margin: 0 auto;   
+}  
+
+.space_15 {
+  padding: 4vw 0 1vw 3vw ;      
+}
+
+.text_p1 {    
+  font-size: 1.8em ;       
+}  
+
+.text_p2 {    
+  color : rgb(241, 189, 19);    
+  font-size: 1.3em; 
+}  
+
+.text_p3 {    
+  font-size: 5em ;
+  text-align: center;         
+}  
+
+.text_p4 {    
+  color : rgb(241, 189, 19);    
+  font-size: 1.8em ;   
+}  
+
+.text_p5 {           
+  font-size: 1.1em ;   
+}   
+
+.text_p6 {    
+  color : rgb(241, 189, 19);    
+  font-size: 0.7em; 
+}  
+
+.vol {
+  max-width: 2.5em;
+  max-height: 2.5em;
+  margin-top: 2vw; 
+}
+
+
+/* pour les  écrans avec une largeur superieure a 768px */
+.imgDice {
+  max-width: 50%;
+  max-height: 50%;
+  padding: 3vw 0; 
+}
+
+/* pour les écrans avec une largeur maximale de 768px */
+@media screen and (max-width: 768px) {    
+  .imgDice {
+    width: 45px;
+    height: auto;
+    padding: 3vw 0; 
+  }
+}  
+ 
+
+
+
+
+  
+
+ 
+
+
+  
+
+
+  

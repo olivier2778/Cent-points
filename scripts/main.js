@@ -6,19 +6,20 @@ let soundHold
 let soundDice
 let soundLoose
 let soundVictory
-let soundOn = false
+let soundOn = false   // son desactivé par defaut
 let scorePlayers
 let globalPlayer1
 let globalPlayer2
 let roundPlayer1
 let roundPlayer2
-let diceResult = 0
+let diceResult = 0      // pas d'affichage du dé avec valeur 0
 let playerNumberRandom = 0
+let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 10
+const winScore = 10   // score a atteindre pour gagner
 
-// valide l'action des boutons de jeu ( play et hold ) et de l'intialisation de la partie et de l'affichage des regles du jeu
+// valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
 document.getElementById("buttonNewGame").onclick = gameInit
 document.getElementById("buttonRules").onclick = rules
 document.getElementById("buttonOneMoreGame").onclick = oneMoreGame
@@ -72,14 +73,10 @@ function displayScores() {
     document.getElementById("globalPlayer2").textContent = globalPlayer2
 }
 
-function displayDice() {                                          // affichage de la face du dé resultant du lancé 
-     document.getElementById("imageDice").src = diceFaces[diceResult]       
-}   
+let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // affichage de la face du dé resultant du lancé 
 
-function NoDisplayDice() {                                         // pas d'affichage du dé
-    document.getElementById("imageDice").src = diceFaces[0]  
-}
-
+let NoDisplayDice = () => document.getElementById("imageDice").src = diceFaces[0]           // pas d'affichage du dé
+    
 function randomPlayerChoice() {                                    // choix aleatoire du joueur qui commence 
         playerNumberRandom = Math.floor(Math.random() * 2) + 1
         playerNumberStart = playerNumberRandom    
@@ -97,14 +94,21 @@ function opacityPlayer() {                                        // actualisati
 
 function inputNames() {                                             // modale de saisie des noms
     InputNamePlayers = new bootstrap.Modal(document.getElementById("InputNamePlayers"))     
-    InputNamePlayers.show()     
+    InputNamePlayers.show()    
 }
 
-function submitNames () {                                           // validation de la saisie des noms
+function submitNames () {     // validation de la saisie des noms
     namePlayer1 = document.getElementById("InputNamePlayer1").value
-    namePlayer2 = document.getElementById("InputNamePlayer2").value   
-    document.getElementById("namePlayer1").textContent = namePlayer1
-    document.getElementById("namePlayer2").textContent = namePlayer2
+    namePlayer2 = document.getElementById("InputNamePlayer2").value    
+    if (  namePlayer1.length >2 && namePlayer1 !== "   "  && namePlayer2.length >2 && namePlayer2 !== "   ")  {
+        document.getElementById("namePlayer1").textContent = namePlayer1
+        document.getElementById("namePlayer2").textContent = namePlayer2
+    } else {
+        namePlayer1 = 'Player 1'
+        namePlayer2 = 'Player 2'
+        document.getElementById("namePlayer1").textContent = namePlayer1
+        document.getElementById("namePlayer2").textContent = namePlayer2
+    }                                
     InputNamePlayers.hide()    
 }
 
@@ -172,16 +176,16 @@ function hold() {       // hold valide le score provisoire effectué et l'ajoute
 }
 
 function rules() {
-    rulesModal = new bootstrap.Modal(document.getElementById("rulesModal"))
+    let rulesModal = new bootstrap.Modal(document.getElementById("rulesModal"))
     rulesModal.show()
 }
 
 function victory() {
-    playSoundVictory()                                                        // affichage modale victoire avec gestion manches
+    playSoundVictory()                                                        // affichage modale victoire avec gestion manches    
     document.getElementById("winnerPlayer").textContent = `${winnerPlayer} a gagné cette manche !`
-    document.getElementById("player1Scores").textContent = `score de ${namePlayer1} : ${scorePlayers[0]}`
-    document.getElementById("player2Scores").textContent = `score de ${namePlayer2} : ${scorePlayers[1]}`
-    victoryModal = new bootstrap.Modal(document.getElementById("victoryModal"))    
+    document.getElementById("player1Scores").textContent = `Score de ${namePlayer1} : ${scorePlayers[0]}`
+    document.getElementById("player2Scores").textContent = `Score de ${namePlayer2} : ${scorePlayers[1]}`
+    let victoryModal = new bootstrap.Modal(document.getElementById("victoryModal"))    
     victoryModal.show()
 }
 
@@ -227,7 +231,7 @@ function playSoundVictory() {
 }
 
 
-// lance la function gameInit et randomPlayerChoice au chargement de la page
+// lance gameInit et randomPlayerChoice au chargement de la page
 randomPlayerChoice()
 gameInit()
 
