@@ -1,6 +1,6 @@
 let namePlayer1
 let namePlayer2
-const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png' ,  './images/dice_anim.gif']
+const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png']
 const imgSound = ['./images/volOff.png' , './images/volOn.png']
 let soundHold
 let soundDice
@@ -17,7 +17,8 @@ let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 100   // score a atteindre pour gagner
+const winScore = 100  // score a atteindre pour gagner
+let alertInput = false
 
 // valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
 document.getElementById("buttonNewGame").onclick = gameInit
@@ -29,15 +30,19 @@ document.getElementById("buttonHold").onclick = hold
 document.getElementById("buttonSubmitNames").onclick = submitNames
 document.getElementById("soundVolume").onclick = sound
 
-function gameInit() {                                              // gameInit  initialise les valeurs au debut du jeu ( ou des manches )
+function gameStart() {                                              // gameStart  initialise les valeurs au debut du jeu ( ou des manches )
     scorePlayers = [0, 0]
     namePlayer1 = 'Player 1'
     namePlayer2 = 'Player 2'
     initPlayers ()
     displayPlayers()
     displayScores()
-    opacityPlayer()
-    inputNames()    
+    opacityPlayer()     
+}
+
+function gameInit() {                                               // gameInit  initialise les valeurs et permet de changer les noms                                       
+    gameStart() 
+    inputNames()
 }
 
 function oneMoreGame() {                                           // on continue la partie en comptant les manches
@@ -103,27 +108,39 @@ function inputNames() {                                             // modale de
     InputNamePlayers.show()    
 }
 
-function submitNames () {     // validation de la saisie des noms
+function submitNames () {                                            // validation de la saisie des noms
     namePlayer1 = document.getElementById("InputNamePlayer1").value
     namePlayer2 = document.getElementById("InputNamePlayer2").value    
-    if (  namePlayer1.length >2 && namePlayer1 !== "   "  && namePlayer2.length >2 && namePlayer2 !== "   ")  {
+    if ( /^\S{3,}$/.test(namePlayer1) &&  /^\S{3,}$/.test(namePlayer2)) {         
         displayPlayers()
+        alertInput = false
     } else {
         namePlayer1 = 'Player 1'
         namePlayer2 = 'Player 2'
+        alertInput = true
         displayPlayers()
-    }                                
-    InputNamePlayers.hide()    
+    }                               
+    if ( alertInput === true) {
+        alert("Les champs doivent contenir 3 caracteres minimum sans espace")
+        alertInput = false    
+    } else {
+        InputNamePlayers.hide()    
+    }
 }
 
-function diceRoll() {                                          // jeu en cours
-    document.getElementById("imageDice").src = diceFaces[7]     // animation du dé avec un gif
-    playDiceRoll()
-    setTimeout(play , 700)                                  // et attente 0,7s avant d'afficher le resultat du lancé (function play) 
-}
+function diceRoll() {                                               // jeu en cours , lancé de dé
+    playSoundDiceRoll()
+    for ( let i = 1 ; i < 7 ; i++ )
+    {
+        setTimeout (function timer(){
+            document.getElementById("imageDice").src = diceFaces[i]   // animation : affichage de chaque face du dé apres temporisation 
+        }, i*150 )                                                                  
+    } 
+    setTimeout(play , 1050)                                         //  affichage de la face du dé tirée apres la fin de l'animation 
+}                          
 
-function play() {                                            // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour 
-    diceResult = Math.floor(Math.random() * 6) + 1                            
+function play() {                                                   // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour 
+     diceResult = Math.floor(Math.random() * 6) + 1                            
     if (playerNumberStart === 1 && diceResult !== 1) {
         roundPlayer1 = roundPlayer1 + diceResult
         document.getElementById("roundPlayer1").textContent = roundPlayer1      
@@ -132,7 +149,7 @@ function play() {                                            // determine la val
         document.getElementById("roundPlayer1").textContent = roundPlayer1
         playerNumberStart = 2
         opacityPlayer()             
-        setTimeout(NoDisplayDice , 600)    // supprime l'affichage du lancé avec 1  apres 3s
+        setTimeout(NoDisplayDice , 600)                          // supprime l'affichage du lancé avec 1  apres 3s
         playSoundLoose()
     } else if (playerNumberStart !== 1 && diceResult !== 1) {
         roundPlayer2 = roundPlayer2 + diceResult
@@ -149,7 +166,7 @@ function play() {                                            // determine la val
 }
 
 function hold() {       // hold valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant    
-    NoDisplayDice()  // le dé n'est plus affiché       
+    NoDisplayDice()     // le dé n'est plus affiché       
     if (playerNumberStart === 1) {
         playSoundHold()
         globalPlayer1 = globalPlayer1 + roundPlayer1
@@ -210,7 +227,7 @@ function sound () {
     }
 }
 
-function playDiceRoll() {    
+function playSoundDiceRoll() {    
     if ( soundOn === true) {
         soundDice.play()
     }
@@ -235,9 +252,10 @@ function playSoundVictory() {
 }
 
 
-// lance gameInit et randomPlayerChoice au chargement de la page
+// lance gameStart et randomPlayerChoice au chargement de la page
 randomPlayerChoice()
-gameInit()
+gameStart()
+
 
 
 
