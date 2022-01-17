@@ -1,6 +1,6 @@
 let namePlayer1
 let namePlayer2
-const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png']
+const diceFaces = ['' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png']
 const imgSound = ['./images/volOff.png' , './images/volOn.png']
 let soundHold
 let soundDice
@@ -37,7 +37,8 @@ function gameStart() {                                              // gameStart
     initPlayers ()
     displayPlayers()
     displayScores()
-    opacityPlayer()     
+    opacityPlayer()
+    NoDisplayDice()     
 }
 
 function gameInit() {                                               // gameInit  initialise les valeurs et permet de changer les noms                                       
@@ -57,9 +58,9 @@ function oneMoreGame() {                                           // on continu
     opacityPlayer()
 }
 
-function noMoreGame() {                                            // fin de la partie avec reinitialisation du compteur des manches
-    document.getElementById("imageDice").src = diceFaces[0]     
-    scorePlayers = [0, 0]
+function noMoreGame() { 
+    scorePlayers = [0, 0]                                           // fin de la partie avec reinitialisation du compteur des manches
+    NoDisplayDice()    
     oneMoreGame()   
 }
 
@@ -83,10 +84,9 @@ function displayPlayers() {
     document.getElementById("namePlayer2").textContent = namePlayer2
 }
     
-
-let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // affichage de la face du dé resultant du lancé 
-
-let NoDisplayDice = () => document.getElementById("imageDice").src = diceFaces[0]           // pas d'affichage du dé
+ let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // affichage de la face du dé resultant du lancé 
+        
+ let NoDisplayDice = () => document.getElementById("imageDice").style.visibility ='hidden'   // pas d'affichage du dé  
     
 function randomPlayerChoice() {                                    // choix aleatoire du joueur qui commence 
         playerNumberRandom = Math.floor(Math.random() * 2) + 1
@@ -129,7 +129,8 @@ function submitNames () {                                            // validati
 }
 
 function diceRoll() {                                               // jeu en cours , lancé de dé
-    playSoundDiceRoll()
+    document.getElementById("imageDice").style.visibility ='visible'
+    playSoundDiceRoll()    
     for ( let i = 1 ; i < 7 ; i++ )
     {
         setTimeout (function timer(){
@@ -149,7 +150,7 @@ function play() {                                                   // determine
         document.getElementById("roundPlayer1").textContent = roundPlayer1
         playerNumberStart = 2
         opacityPlayer()             
-        setTimeout(NoDisplayDice , 600)                          // supprime l'affichage du lancé avec 1  apres 3s
+        setTimeout(NoDisplayDice , 600)                          // supprime l'affichage du dé apres 3s pour un lancé avec 1  
         playSoundLoose()
     } else if (playerNumberStart !== 1 && diceResult !== 1) {
         roundPlayer2 = roundPlayer2 + diceResult
@@ -161,8 +162,8 @@ function play() {                                                   // determine
         opacityPlayer() 
         setTimeout(NoDisplayDice , 600) 
         playSoundLoose()
-    }
-    document.getElementById("imageDice").src = diceFaces[diceResult]   // affiche le lancé   
+    }    
+    displayDice()   
 }
 
 function hold() {       // hold valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant    
