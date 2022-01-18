@@ -1,8 +1,7 @@
 body {
   font-family: Lato , Arial, Helvetica, sans-serif ;
   color : white; 
-  text-align: center;    
-  overflow-x: hidden; 
+  text-align: center;      
 }   
 
 body , .color_modal {
@@ -10,7 +9,7 @@ body , .color_modal {
 }
   
 .activePlayerOff {  
-  padding: 1vw 6vw ;
+  padding: 1vw 0 ;
   margin : 0 3vw 1vw 3vw ;
   border-radius: 8px; 
   opacity : 0.4 ;
@@ -19,7 +18,7 @@ body , .color_modal {
 }
 
 .activePlayerOn {   
-  padding: 1vw 6vw ;
+  padding: 1vw 0 ;
   margin : 0 3vw 1vw 3vw ;
   border-radius: 8px;
   opacity : 1 ;
@@ -39,10 +38,6 @@ body , .color_modal {
 .space_1 {
   padding: 1vw 0 2vw 0 ;      
 }
-
-.space_2 {   
- margin: 0 auto;   
-}  
 
 .text_p1 {    
   font-size: 1.8em ;       
@@ -70,33 +65,100 @@ body , .color_modal {
 
 .text_p6 {    
   font-size: 0.7em; 
+  margin : 9vw 0 1vw 0 ;   
 }  
 
 .text_p7 {    
   font-size: 0.8em; 
 }  
 
+.text_p8 {    
+  font-size: 1.2em; 
+}  
+
 .sound_button {
   max-width: 2.5em;
   max-height: 2.5em;
-  margin-top: 2vw; 
+  margin-top: 3vw; 
 }
 
 /* pour les  écrans avec une largeur superieure a 768px */
 .imgDice {
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 40%;
+  max-height: 40%;
   padding: 3vw 0; 
 }
 
 /* pour les écrans avec une largeur maximale de 768px */
 @media screen and (max-width: 768px) {    
   .imgDice {
-    width: 45px;
+    max-width: 45px;
+    min-width: 35px;
     height: auto;
     padding: 3vw 0; 
   }
-}  
+
+  .text_p8 {    
+    font-size: 0.7em; 
+  }  
+}   
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .imgDice {
+    min-width: 35px;
+    height: auto;
+    padding: 3vw 0; 
+  }
+
+  .col-4 {
+    width:33%;
+    display:inline ;
+  }
+  
+  .col-md-5 {
+    width:37%;
+    display:inline;
+  }
+
+  .col-md-2 {
+    width:24%;
+    display:inline;
+  }  
+
+  .col-md-4 {
+    width:33%;
+    display:inline;
+  }  
+
+  .activePlayerOff {  
+    width: 30vw ;
+    padding: 1vw 0 ;
+    margin : 0 0 1vw 1vw ;
+    border-radius: 8px; 
+    opacity : 0.4 ;
+    background-color: rgb(4, 92, 73) ;
+    box-shadow  : none ;
+  }
+  
+  .activePlayerOn {   
+    width: 30vw ;
+    padding: 1vw 0 ;
+    margin : 0 0 1vw 1vw ;
+    border-radius: 8px;
+    opacity : 1 ;
+    background-color: rgb(7, 165, 131) ;
+    box-shadow  :  inset 0px 0px 5px white  ;
+  } 
+  
+  .button_t2 {
+    margin: 1vw 0;   
+    box-shadow  :  inset 0px 0px 5px white  ;
+  }  
+
+  .text_p1 {    
+    font-size: 1.2em ;       
+  }  
+}
  
 
 
