@@ -12,12 +12,12 @@ let globalPlayer1
 let globalPlayer2
 let roundPlayer1
 let roundPlayer2
-let diceResult     
+let diceResult
 let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 100  // score a atteindre pour gagner
+const winScore = 10  // score a atteindre pour gagner
 let alertInput = false
 
 // valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
@@ -34,11 +34,11 @@ function gameStart() {                                              // gameStart
     scorePlayers = [0, 0]
     namePlayer1 = 'Player 1'
     namePlayer2 = 'Player 2'
+    NoDisplayDice()    
     initPlayers ()
     displayPlayers()
     displayScores()
-    opacityPlayer()
-    NoDisplayDice()     
+    opacityPlayer()    
 }
 
 function gameInit() {                                               // gameInit  initialise les valeurs et permet de changer les noms                                       
@@ -66,7 +66,7 @@ function noMoreGame() {
 
 function initPlayers () {
     globalPlayer1 = 0
-    roundPlayer1 = 0    
+    roundPlayer1 = 0   
     globalPlayer2 = 0
     roundPlayer2 = 0
 }

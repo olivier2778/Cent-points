@@ -6,7 +6,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content=" Jeu de dé : faire 100 points avant votre adversaire !">
-    <meta name="keywords" content="dé , dice , jeu , game , joueur, player , points , victoire , victory , gagner , win">
+    <meta name="keywords"
+        content="dé , dice , jeu , game , joueur, player , points , victoire , victory , gagner , win">
     <meta name="author" content="Olivier">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,10 +19,10 @@
 
 <body>
 
-    <header class="container">
+    <header class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <div class="space_1 d-flex justify-content-center">
+                <div class="space_1">
                     <button id="buttonRules" type="button" class="btn btn-success btn-sm button_t1">
                         Régles du jeu
                     </button>
@@ -30,11 +31,11 @@
             <div class="col-4">
                 <div class="space_1">
                     <h1>100 points</h1>
-                    <h4>et c'est gagné!</h4>
+                    <p class="text_p8">et c'est gagné!</p>
                 </div>
             </div>
             <div class="col-4">
-                <div class="space_1 d-flex justify-content-center">
+                <div class="space_1">
                     <button id="buttonNewGame" type="button" class="btn btn-success btn-sm button_t1">
                         Démarrer une partie
                     </button>
@@ -46,15 +47,15 @@
     <main class="container-fluid">
         <div class="row">
 
-            <div class="col-sm-5 ">
-                <div id="activePlayer1" class="activePlayerOff">                    
+            <div class="col-md-5">
+                <div id="activePlayer1" class="activePlayerOff">
                     <div class="text_p1" id="namePlayer1"> </div>
                     <div class="text_p3" id="globalPlayer1"> </div>
                     <div class="text_p2"> En cours : <span class="text_p4" id="roundPlayer1"></span> </div>
                 </div>
             </div>
 
-            <div class="col-sm-2 justify-content-center">
+            <div class="col-md-2">
                 <div>
                     <button id="buttonPlay" type="button" class="btn btn-info btn-lg button_t2">
                         Lancer
@@ -64,13 +65,13 @@
                     </button>
                 </div>
 
-                <div class="space_2">
+                <div>
                     <img class="imgDice" id="imageDice" src="./images/dice0.png" alt="Dé">
                 </div>
             </div>
 
-            <div class="col-sm-5">
-                <div id="activePlayer2" class="activePlayerOn">                    
+            <div class="col-md-5">
+                <div id="activePlayer2" class="activePlayerOn">
                     <div class="text_p1" id="namePlayer2"> </div>
                     <div class="text_p3" id="globalPlayer2"> </div>
                     <div class="text_p2"> En cours : <span class="text_p4" id="roundPlayer2"></span> </div>
@@ -82,27 +83,30 @@
                     <div class="modal-content color_modal">
                         <div class="modal-header">
                             <div class="modal-title">
-                                <p class="text_p4"> Saisissez les noms des joueurs si vous le désirez </p>                                
+                                <p class="text_p4"> Saisissez les noms des joueurs si vous le désirez </p>
                             </div>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>                 
+                        </div>
                         <div class="modal-body">
-                            <div class="row size_7">
-                                <div class="col text_ref3">
+                            <div class="row">
+                                <div class="col">
                                     <div class="colorForm">
                                         <div class="row g-3 mb-3">
                                             <p class="text_p5"> Chaque nom doit contenir au moins 3 caractères </p>
                                             <div class="col-lg">
-                                                <input id="InputNamePlayer1" type="text" maxlength="18" class="form-control"
-                                                    placeholder="Nom player 1" aria-label="Nom player 1">
+                                                <input id="InputNamePlayer1" type="text" maxlength="10"
+                                                    class="form-control" placeholder="Nom player 1"
+                                                    aria-label="Nom player 1">
                                             </div>
                                             <div class="col-lg">
-                                                <input id="InputNamePlayer2" type="text" maxlength="18" class="form-control"
-                                                    placeholder="Nom player 2" aria-label="Nom player 2">
+                                                <input id="InputNamePlayer2" type="text" maxlength="10"
+                                                    class="form-control" placeholder="Nom player 2"
+                                                    aria-label="Nom player 2">
                                             </div>
                                         </div>
                                     </div>
-                                    <button id="buttonSubmitNames" type="submit" class="btn btn-primary">Valider</button>                                       
+                                    <button id="buttonSubmitNames" type="submit"
+                                        class="btn btn-primary">Valider</button>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -114,7 +118,7 @@
             </div>
 
             <div id="rulesModal" class="modal fade" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog">
                     <div class="modal-content color_modal">
                         <div class="modal-header">
                             <p class="modal-title text_p4">Règles du jeu</p>
@@ -122,27 +126,34 @@
                         </div>
                         <div class="modal-body">
                             <div class="text_p5">
-                                <p>La partie se joue en 100 points , le premier joueur qui atteint ou dépasse ce sore
+                                <p>La partie se joue en 100 points , le premier joueur qui atteint ou dépasse ce
+                                    sore
                                     de 100 points a gagné la manche.</p>
                                 <p> Le joueur qui commence lance le dé , ce score est provisoire , il peut continuer
-                                    soit à jouer pour cumuler des points , ou soit à valider ce score provisoire pour
+                                    soit à jouer pour cumuler des points , ou soit à valider ce score provisoire
+                                    pour
                                     l'ajouter au total.</p>
                                 <p> Attention , s'il fait 1, à tout moment son score provisoire est perdu , et il
                                     passe son tour </p>
                                 <p> C'est ensuite au joueur suivant de lancer le dé , il aura les mêmes choix. </p>
-                                <p> Qui commence ? : <br> Le joueur qui commence le jeu est determiné aléatoirement.</p>
+                                <p> Qui commence ? : <br> Le joueur qui commence le jeu est determiné aléatoirement.
+                                </p>
                                 <p> Qui commence ensuite à la partie suivante ? : <br> Pour toute nouvelle partie ,
-                                    le joueur qui commencera est le joueur suivant de celui qui avait commencé au tour
+                                    le joueur qui commencera est le joueur suivant de celui qui avait commencé au
+                                    tour
                                     précédent.</p>
                                 <ul>
                                     A la fin de la manche ( 100 points ) , 2 choix s'offrent :
                                     <li> Continuer la partie : pour refaire une manche , et ces manches sont
                                         comptabilisées au fur et a mesures des victoires </li>
-                                    <li>Finir la partie : le compteur des manches gagnées par chaque joueur est remis
+                                    <li>Finir la partie : le compteur des manches gagnées par chaque joueur est
+                                        remis
                                         à zéro</li>
                                 </ul>
-                                <p> Touche démarrer une partie , elle fait quoi ? :<br> Elle permet de remettre a zéro
-                                    le compteur des manches , elle permet de changer le nom des joueurs , mais ne change
+                                <p> Touche démarrer une partie , elle fait quoi ? :<br> Elle permet de remettre a
+                                    zéro
+                                    le compteur des manches , elle permet de changer le nom des joueurs , mais ne
+                                    change
                                     pas l'ordre du joueur qui commencera.</p>
                             </div>
                             <div class="modal-footer">
@@ -156,37 +167,44 @@
             <!-- l'option :   data-bs-backdrop="static"   ne permet pas de quitter la modale en cliquant en dehors -->
             <div id="victoryModal" class="modal fade" data-bs-backdrop="static" tabindex="-1">
                 <div class="modal-dialog">
-                    <div class="modal-content color_modal">                      
+                    <div class="modal-content color_modal">
                         <div class="modal-body">
-                            <p class="text_p1" id="winnerPlayer"></p>                           
-                            <div class="text_p2">                                
-                                <p id="player1Scores"></p> 
-                                <p id="player2Scores"></p> 
-                            </div>                  
+                            <p class="text_p1" id="winnerPlayer"></p>
+                            <div class="text_p2">
+                                <p id="player1Scores"></p>
+                                <p id="player2Scores"></p>
+                            </div>
                             <button type="button" id="buttonNoMoreGame" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Finir</button>                 <!-- on reinitailise le compteur des manches -->
+                                data-bs-dismiss="modal">Finir</button>
+                            <!-- on reinitailise le compteur des manches -->
                             <button type="button" id="buttonOneMoreGame" class="btn btn-primary"
-                                data-bs-dismiss="modal">Continuer la partie</button>    <!-- on continue de compter les manches -->                                
+                                data-bs-dismiss="modal">Continuer la partie</button>
+                            <!-- on continue de compter les manches -->
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="row">
-            <div class="space_2">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
                 <img type="button" class="sound_button" id="soundVolume" src="./images/volOff.png" alt="volume off">
                 <p class="text_p7" id="soundText">Son Off</p>
             </div>
+            <div class="col-md-5"></div>
         </div>
 
     </main>
 
-    <footer>
+    <footer class="container-fluid">
         <div class="row">
-            <div class="col-12 text_p6">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text_p6">
                 Une création Olivier
             </div>
+            <div class="col-md-4"></div>
         </div>
     </footer>
 
