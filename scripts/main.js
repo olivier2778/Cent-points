@@ -1,6 +1,6 @@
 let namePlayer1
 let namePlayer2
-const diceFaces = ['' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png']
+const diceFaces = ['./images/dice0.png' , './images/dice1.png' , './images/dice2.png' , './images/dice3.png' , './images/dice4.png' , './images/dice5.png' , './images/dice6.png']
 const imgSound = ['./images/volOff.png' , './images/volOn.png']
 let soundHold
 let soundDice
@@ -12,7 +12,7 @@ let globalPlayer1
 let globalPlayer2
 let roundPlayer1
 let roundPlayer2
-let diceResult = 0      // pas d'affichage du dé avec valeur 0
+let diceResult     
 let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
@@ -66,8 +66,7 @@ function noMoreGame() {
 
 function initPlayers () {
     globalPlayer1 = 0
-    roundPlayer1 = 0
-    diceResult = 0
+    roundPlayer1 = 0    
     globalPlayer2 = 0
     roundPlayer2 = 0
 }
