@@ -17,8 +17,7 @@ let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 10  // score a atteindre pour gagner
-let alertInput = false
+const winScore = 100  // score a atteindre pour gagner
 
 // valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
 document.getElementById("buttonNewGame").onclick = gameInit
@@ -60,7 +59,6 @@ function oneMoreGame() {                                           // on continu
 
 function noMoreGame() { 
     scorePlayers = [0, 0]                                           // fin de la partie avec reinitialisation du compteur des manches
-    NoDisplayDice()    
     oneMoreGame()   
 }
 
@@ -110,21 +108,14 @@ function inputNames() {                                             // modale de
 function submitNames () {                                            // validation de la saisie des noms
     namePlayer1 = document.getElementById("InputNamePlayer1").value
     namePlayer2 = document.getElementById("InputNamePlayer2").value    
-    if ( /^\S{3,}$/.test(namePlayer1) &&  /^\S{3,}$/.test(namePlayer2)) {         
-        displayPlayers()
-        alertInput = false
+    if ( /^\S{3,10}$/.test(namePlayer1) &&  /^\S{3,10}$/.test(namePlayer2)) {         
+        displayPlayers()        
+        InputNamePlayers.hide()    
     } else {
         namePlayer1 = 'Player 1'
-        namePlayer2 = 'Player 2'
-        alertInput = true
-        displayPlayers()
-    }                               
-    if ( alertInput === true) {
-        alert("Les champs doivent contenir 3 caracteres minimum sans espace")
-        alertInput = false    
-    } else {
-        InputNamePlayers.hide()    
-    }
+        namePlayer2 = 'Player 2'      
+        alert("Les noms doivent contenir de 3 a 10 caractères sans espace")        
+    }                          
 }
 
 function diceRoll() {                                               // jeu en cours , lancé de dé
@@ -166,9 +157,7 @@ function play() {                                                   // determine
 }
 
 function hold() {       // hold valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant    
-    NoDisplayDice()     // le dé n'est plus affiché       
-    if (playerNumberStart === 1) {
-        playSoundHold()
+    if (playerNumberStart === 1) {        
         globalPlayer1 = globalPlayer1 + roundPlayer1
         document.getElementById("globalPlayer1").textContent = globalPlayer1
         if (globalPlayer1 >= winScore) {
@@ -178,10 +167,8 @@ function hold() {       // hold valide le score provisoire effectué et l'ajoute
         }
         roundPlayer1 = 0
         document.getElementById("roundPlayer1").textContent = roundPlayer1
-        playerNumberStart = 2
-        opacityPlayer()        
-    } else {
-        playSoundHold()
+        playerNumberStart = 2              
+    } else {        
         globalPlayer2 = globalPlayer2 + roundPlayer2
         document.getElementById("globalPlayer2").textContent = globalPlayer2
         if (globalPlayer2 >= winScore) {
@@ -191,9 +178,11 @@ function hold() {       // hold valide le score provisoire effectué et l'ajoute
         }
         roundPlayer2 = 0
         document.getElementById("roundPlayer2").textContent = roundPlayer2
-        playerNumberStart = 1
-        opacityPlayer()        
-    }                 
+        playerNumberStart = 1             
+    }
+    setTimeout(NoDisplayDice , 200)     // le dé n'est plus affiché apres 0,2s       
+    opacityPlayer()
+    playSoundHold()                    
 }
 
 function rules() {

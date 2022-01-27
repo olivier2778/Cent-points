@@ -80,14 +80,31 @@ body , .color_modal {
   max-width: 2.5em;
   max-height: 2.5em;
   margin-top: 3vw; 
-}
+} 
 
-/* pour les  écrans avec une largeur superieure a 768px */
 .imgDice {
   max-width: 40%;
   max-height: 40%;
   padding: 3vw 0; 
 }
+
+/* pour les écrans avec une largeur maximale de 360px */
+@media screen and (max-width: 360px) {    
+  .imgDice {
+    max-width: 45px;
+    min-width: 35px;
+    height: auto;
+    padding: 3vw 0; 
+  }
+
+  .text_p8 {    
+    font-size: 0.7em; 
+  }  
+
+  .text_p1 {    
+    font-size: 0.8em ;       
+  }  
+} 
 
 /* pour les écrans avec une largeur maximale de 768px */
 @media screen and (max-width: 768px) {    
@@ -100,9 +117,32 @@ body , .color_modal {
 
   .text_p8 {    
     font-size: 0.7em; 
-  }  
-}   
+  } 
 
+  .text_p1 {    
+    font-size: 1.0em ;       
+  }   
+}     
+
+/* pour les écrans avec une largeur maximale de 1024px */
+@media screen and (max-width: 1024px) {    
+  .imgDice {
+    max-width: 45px;
+    min-width: 35px;
+    height: auto;
+    padding: 3vw 0; 
+  }
+
+  .text_p8 {    
+    font-size: 0.8em; 
+  } 
+
+  .text_p1 {    
+    font-size: 1.3em ;       
+  }   
+}  
+
+/* pour les écrans avec une largeur maximale de 768px en mode paysage*/
 @media screen and (max-width: 768px) and (orientation: landscape) {
   .imgDice {
     min-width: 35px;
@@ -156,7 +196,7 @@ body , .color_modal {
   }  
 
   .text_p1 {    
-    font-size: 1.2em ;       
+    font-size: 1.0em ;       
   }  
 }
  
