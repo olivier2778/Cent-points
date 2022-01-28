@@ -6,7 +6,7 @@ let soundHold
 let soundDice
 let soundLoose
 let soundVictory
-let soundOn = false   // son desactivé par defaut
+let soundOn = false   // sound off by default
 let scorePlayers
 let globalPlayer1
 let globalPlayer2
@@ -17,9 +17,9 @@ let playerNumberRandom = 0
 let InputNamePlayers
 let playerNumberStart
 let winnerPlayer
-const winScore = 100  // score a atteindre pour gagner
+const winScore = 100  // score to reach for win
 
-// valide l'action des boutons de jeu ( play et hold ) , de l'intialisation de la partie , du son , de l'affichage des regles du jeu
+// validate the buttons actions
 document.getElementById("buttonNewGame").onclick = gameInit
 document.getElementById("buttonRules").onclick = rules
 document.getElementById("buttonOneMoreGame").onclick = oneMoreGame
@@ -29,7 +29,7 @@ document.getElementById("buttonHold").onclick = hold
 document.getElementById("buttonSubmitNames").onclick = submitNames
 document.getElementById("soundVolume").onclick = sound
 
-function gameStart() {                                              // gameStart  initialise les valeurs au debut du jeu ( ou des manches )
+function gameStart() {                                              // initialize the values at the start of the game (or rounds)
     scorePlayers = [0, 0]
     namePlayer1 = 'Player 1'
     namePlayer2 = 'Player 2'
@@ -40,12 +40,12 @@ function gameStart() {                                              // gameStart
     opacityPlayer()    
 }
 
-function gameInit() {                                               // gameInit  initialise les valeurs et permet de changer les noms                                       
+function gameInit() {                                               // initializes values and allows to change players names                                  
     gameStart() 
     inputNames()
 }
 
-function oneMoreGame() {                                           // on continue la partie en comptant les manches
+function oneMoreGame() {                                           // continue the game by counting the rounds
     initPlayers ()
     if (playerNumberRandom === 1) {
         playerNumberRandom = 2
@@ -58,7 +58,7 @@ function oneMoreGame() {                                           // on continu
 }
 
 function noMoreGame() { 
-    scorePlayers = [0, 0]                                           // fin de la partie avec reinitialisation du compteur des manches
+    scorePlayers = [0, 0]                                           // end of the game with reset of the round counter
     oneMoreGame()   
 }
 
@@ -81,18 +81,18 @@ function displayPlayers() {
     document.getElementById("namePlayer2").textContent = namePlayer2
 }
     
- let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // affichage de la face du dé resultant du lancé 
+ let displayDice = () =>  document.getElementById("imageDice").src = diceFaces[diceResult]   // display of the face of the dice resulting from the throw
         
- let NoDisplayDice = () => document.getElementById("imageDice").style.visibility ='hidden'   // pas d'affichage du dé  
+ let NoDisplayDice = () => document.getElementById("imageDice").style.visibility ='hidden'   // no dice display
     
-function randomPlayerChoice() {                                    // choix aleatoire du joueur qui commence 
+function randomPlayerChoice() {                                    // random choice of starting player
         playerNumberRandom = Math.floor(Math.random() * 2) + 1
         playerNumberStart = playerNumberRandom    
 }
 
-function opacityPlayer() {                                        // actualisation de l'affichage de la fenetre active ou non pour les joueurs 1 et 2
+function opacityPlayer() {                                        // updating display of the window active or not for players 1 and 2
     if (playerNumberStart !== 1) {        
-        document.getElementById("activePlayer1").classList.replace("activePlayerOn", "activePlayerOff")  // remplace la 1ere class CSS par la 2e
+        document.getElementById("activePlayer1").classList.replace("activePlayerOn", "activePlayerOff")  // replace the 1st CSS class with the 2nd
         document.getElementById("activePlayer2").classList.replace("activePlayerOff", "activePlayerOn")
     } else {
         document.getElementById("activePlayer1").classList.replace("activePlayerOff", "activePlayerOn")
@@ -100,12 +100,12 @@ function opacityPlayer() {                                        // actualisati
     }
 }
 
-function inputNames() {                                             // modale de saisie des noms
+function inputNames() {                                             // modal name entry mode
     InputNamePlayers = new bootstrap.Modal(document.getElementById("InputNamePlayers"))     
     InputNamePlayers.show()    
 }
 
-function submitNames () {                                            // validation de la saisie des noms
+function submitNames () {                                            // name entry validation
     namePlayer1 = document.getElementById("InputNamePlayer1").value
     namePlayer2 = document.getElementById("InputNamePlayer2").value    
     if ( /^\S{3,10}$/.test(namePlayer1) &&  /^\S{3,10}$/.test(namePlayer2)) {         
@@ -118,19 +118,19 @@ function submitNames () {                                            // validati
     }                          
 }
 
-function diceRoll() {                                               // jeu en cours , lancé de dé
+function diceRoll() {                                               // game in progress, roll of the dice
     document.getElementById("imageDice").style.visibility ='visible'
     playSoundDiceRoll()    
     for ( let i = 1 ; i < 7 ; i++ )
     {
         setTimeout (function timer(){
-            document.getElementById("imageDice").src = diceFaces[i]   // animation : affichage de chaque face du dé apres temporisation 
+            document.getElementById("imageDice").src = diceFaces[i]   // animation : display of each side of the dice after timeout
         }, i*150 )                                                                  
     } 
-    setTimeout(play , 1050)                                         //  affichage de la face du dé tirée apres la fin de l'animation 
+    setTimeout(play , 1050)                                         //  display of the face of the dice drawn after the end of the animation
 }                          
 
-function play() {                                                   // determine la valeur du lancé et l'affiche , et si le lancé est 1 passe le tour 
+function play() {                                                   // determines the value of the throw and displays it, and if the throw is 1 passes the turn 
      diceResult = Math.floor(Math.random() * 6) + 1                            
     if (playerNumberStart === 1 && diceResult !== 1) {
         roundPlayer1 = roundPlayer1 + diceResult
@@ -140,7 +140,7 @@ function play() {                                                   // determine
         document.getElementById("roundPlayer1").textContent = roundPlayer1
         playerNumberStart = 2
         opacityPlayer()             
-        setTimeout(NoDisplayDice , 600)                          // supprime l'affichage du dé apres 3s pour un lancé avec 1  
+        setTimeout(NoDisplayDice , 600)                          // suppress dice display after 0.6s for a throw with 1
         playSoundLoose()
     } else if (playerNumberStart !== 1 && diceResult !== 1) {
         roundPlayer2 = roundPlayer2 + diceResult
@@ -156,7 +156,7 @@ function play() {                                                   // determine
     displayDice()   
 }
 
-function hold() {       // hold valide le score provisoire effectué et l'ajoute au score global et ensuite passe le tour au joueur suivant    
+function hold() {       // validates the provisional score and adds it to the global score and passes the turn to the next player
     if (playerNumberStart === 1) {        
         globalPlayer1 = globalPlayer1 + roundPlayer1
         document.getElementById("globalPlayer1").textContent = globalPlayer1
@@ -180,7 +180,7 @@ function hold() {       // hold valide le score provisoire effectué et l'ajoute
         document.getElementById("roundPlayer2").textContent = roundPlayer2
         playerNumberStart = 1             
     }
-    setTimeout(NoDisplayDice , 200)     // le dé n'est plus affiché apres 0,2s       
+    setTimeout(NoDisplayDice , 200)     // the dice is no displayed after 0.2s   
     opacityPlayer()
     playSoundHold()                    
 }
@@ -190,8 +190,8 @@ function rules() {
     rulesModal.show()
 }
 
-function victory() {
-    playSoundVictory()                                                        // affichage modale victoire avec gestion manches    
+function victory() {                                                                 // Victory modal display with rounds management  
+    playSoundVictory()                                                        
     document.getElementById("winnerPlayer").textContent = `${winnerPlayer} a gagné cette manche !`
     document.getElementById("player1Scores").textContent = `Score de ${namePlayer1} : ${scorePlayers[0]}`
     document.getElementById("player2Scores").textContent = `Score de ${namePlayer2} : ${scorePlayers[1]}`
@@ -241,7 +241,7 @@ function playSoundVictory() {
 }
 
 
-// lance gameStart et randomPlayerChoice au chargement de la page
+// launch gameStart and randomPlayerChoice on page load
 randomPlayerChoice()
 gameStart()
 

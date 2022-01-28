@@ -88,7 +88,7 @@ body , .color_modal {
   padding: 3vw 0; 
 }
 
-/* pour les écrans avec une largeur maximale de 360px */
+/* for screens with a maximum width of 360px */
 @media screen and (max-width: 360px) {    
   .imgDice {
     max-width: 45px;
@@ -106,7 +106,7 @@ body , .color_modal {
   }  
 } 
 
-/* pour les écrans avec une largeur maximale de 768px */
+/* for screens with a maximum width of 768px */
 @media screen and (max-width: 768px) {    
   .imgDice {
     max-width: 45px;
@@ -124,7 +124,7 @@ body , .color_modal {
   }   
 }     
 
-/* pour les écrans avec une largeur maximale de 1024px */
+/* for screens with a maximum width of 1024px */
 @media screen and (max-width: 1024px) {    
   .imgDice {
     max-width: 45px;
@@ -142,7 +142,7 @@ body , .color_modal {
   }   
 }  
 
-/* pour les écrans avec une largeur maximale de 768px en mode paysage*/
+/* for screens with a maximum width of 768px aand landscape orientation*/
 @media screen and (max-width: 768px) and (orientation: landscape) {
   .imgDice {
     min-width: 35px;
